@@ -1,2 +1,4 @@
 .DS_Store
 *.FCBak
+KiKad/**/*.bak
+KiKad/**/*.lck
