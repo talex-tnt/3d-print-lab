@@ -661,7 +661,7 @@
         "uuid": "f2e2e4d6-2af3-4060-b5a1-3dfdca0e7db5"
       }
     ],
-    "used_designators": "J1-5,J_FEMALE1,J_MALE1",
+    "used_designators": "U1,J1-5,J_FEMALE1,CPS1_KH1,J_MALE1",
     "variants": []
   },
   "sheets": [
