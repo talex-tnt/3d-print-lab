@@ -170,6 +170,24 @@
 					)
 				)
 				(pin input line
+					(at 6.35 -15.24 0)
+					(length 2.54)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
 					(at 6.35 -17.78 0)
 					(length 2.54)
 					(name "7"
@@ -216,6 +234,24 @@
 						)
 					)
 					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 6.35 -25.4 0)
+					(length 2.54)
+					(name "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3867,7 +3903,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_EH_B10B-EH-A_1x10_P2.50mm_Vertical"
 			(at 156.21 25.4 0)
 			(hide yes)
 			(show_name no)
@@ -3923,6 +3959,12 @@
 		)
 		(pin "9"
 			(uuid "386cfcfb-34e1-4ed7-a025-5c8b85487d6c")
+		)
+		(pin "10"
+			(uuid "6f88194e-b4ce-4ad5-be7b-fe68e0afe0ff")
+		)
+		(pin "6"
+			(uuid "4f42855f-5c23-46cf-a256-43c3b6566dd6")
 		)
 		(instances
 			(project "Jamma SuperGun CPS1 Harness"
