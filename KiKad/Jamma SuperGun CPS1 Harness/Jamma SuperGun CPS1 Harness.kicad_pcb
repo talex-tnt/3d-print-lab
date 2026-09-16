@@ -1827,7 +1827,8 @@
 	)
 	(gr_poly
 		(pts
-			(xy 141.434 78.368) (xy 252.94 78.368) (xy 252.94 42.554) (xy 252.178 41.5) (xy 142.45 41.5) (xy 141.434 42.554)
+			(xy 141.434 78.368) (xy 252.94 78.368) (xy 252.94 42.554) (xy 252.178 41.5) (xy 167.342 41.5) (xy 142.45 41.5)
+			(xy 141.434 42.554)
 		)
 		(stroke
 			(width 0.05)
@@ -2245,10 +2246,32 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "^{designed by talex-tnt}"
+		(at 178.264 63.89 0)
+		(layer "F.SilkS")
+		(uuid "ffb4aa06-64ae-4475-9a81-4887374ea593")
+		(effects
+			(font
+				(size 1.2 1.2)
+				(thickness 0.15)
+			)
+		)
+	)
 	(gr_text "KICK HARNESS ADAPTER"
 		(at 197.568 59.572 0)
 		(layer "F.SilkS")
 		(uuid "980c504f-7aa9-4f64-ad23-ab982b5e39fd")
+		(effects
+			(font
+				(size 1.2 1.2)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "V1"
+		(at 197.568 61.858 0)
+		(layer "F.SilkS")
+		(uuid "643382b2-91b3-466a-96c8-4140f5d107a3")
 		(effects
 			(font
 				(size 1.2 1.2)
