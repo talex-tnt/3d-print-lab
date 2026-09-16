@@ -89,7 +89,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(grid_origin 225 55)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
@@ -1867,8 +1866,8 @@
 	)
 	(gr_poly
 		(pts
-			(xy 141.434 78.368) (xy 252.94 78.368) (xy 252.94 42.554) (xy 252.178 41.5) (xy 170.39 41.5) (xy 169.628 42.3)
-			(xy 169.628 49.92) (xy 165.437 49.92) (xy 165.437 42.3) (xy 164.675 41.5) (xy 142.45 41.5) (xy 141.434 42.554)
+			(xy 141.434 78.368) (xy 252.94 78.368) (xy 252.94 42.554) (xy 252.178 41.5) (xy 170.009 41.5) (xy 169.628 42.3)
+			(xy 169.628 49.92) (xy 165.437 49.92) (xy 165.437 42.3) (xy 165.056 41.5) (xy 142.45 41.5) (xy 141.434 42.554)
 		)
 		(stroke
 			(width 0.05)
@@ -1884,7 +1883,7 @@
 		(uuid "aa0e8478-04fb-4a08-a504-989cbcc0c70b")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1896,7 +1895,7 @@
 		(uuid "76f2d17e-1541-44e1-b74f-efe5a3c6ab17")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1908,7 +1907,7 @@
 		(uuid "ef69431b-8651-4f05-98fc-ce852bcfc3f2")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1920,7 +1919,7 @@
 		(uuid "29205a4e-5a05-45c5-854f-fe3214395d01")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1932,7 +1931,7 @@
 		(uuid "50787552-a3f5-4126-9aa6-d024675ebd57")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1944,7 +1943,7 @@
 		(uuid "dfb3d2b5-1cbf-4b1c-bb07-9b199b2b91e7")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1956,7 +1955,7 @@
 		(uuid "4662a8eb-a401-4182-b8fa-9b3d9aa61b8c")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1968,7 +1967,7 @@
 		(uuid "86898b18-e123-48cf-bfaa-642cbfa1f72a")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1980,7 +1979,7 @@
 		(uuid "31830531-6cef-4b73-ab5b-e0e52ef9c627")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -1992,7 +1991,7 @@
 		(uuid "b6590563-3753-46c0-b073-8968f8666bbc")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2004,7 +2003,7 @@
 		(uuid "597012fe-e354-47b9-8326-75850603f904")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2016,7 +2015,7 @@
 		(uuid "90bee4f8-15df-41ff-8c28-2ce54a0b1d17")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2028,7 +2027,7 @@
 		(uuid "33cd388e-b831-4355-8db9-ee0289afbe82")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2040,7 +2039,7 @@
 		(uuid "d2e0d48e-3bfc-4ab5-804d-bc15c14a0d97")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2052,7 +2051,7 @@
 		(uuid "e1e9c454-29f2-46e0-bc83-3f62f354a3ed")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2064,7 +2063,7 @@
 		(uuid "1590d74e-002e-419a-991d-c6348fac5f60")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2076,7 +2075,7 @@
 		(uuid "7b243b8a-8d31-459d-b3b3-6d4cb00782bd")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2088,7 +2087,7 @@
 		(uuid "f612a905-4f06-4969-ac1e-e2d96468032c")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2100,7 +2099,7 @@
 		(uuid "362ed777-bafb-46bc-a2e3-6d604fe7bf12")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2112,7 +2111,7 @@
 		(uuid "5ffba056-0cd4-4515-986d-e7452a63d054")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2124,7 +2123,7 @@
 		(uuid "a41cf13c-39a9-4da0-93b8-0b5337f24653")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2136,7 +2135,7 @@
 		(uuid "bbf1aadd-9fb6-4d19-93eb-6710b5019f87")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2148,7 +2147,7 @@
 		(uuid "8fd50401-818b-4c2d-8999-2beb6401918c")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2160,7 +2159,7 @@
 		(uuid "987e7ae7-ee4d-4dfa-bf69-7fd400ece11b")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom)
@@ -2325,7 +2324,7 @@
 		(uuid "7716d2e4-02ea-4a6e-86ae-a30c1c9b8b56")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2337,7 +2336,7 @@
 		(uuid "1379ac9f-1ee7-4d45-a3dc-f1b2c594cb83")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2349,7 +2348,7 @@
 		(uuid "5f2e0207-d579-4930-839c-1a550d4ffb4e")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2361,7 +2360,7 @@
 		(uuid "cf7fd728-bef0-457a-87ef-37901113a469")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2373,7 +2372,7 @@
 		(uuid "097091aa-cfb0-4909-a450-bf6682e610a9")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2385,7 +2384,7 @@
 		(uuid "21285dfe-e876-4ab5-a118-1e3dde67b727")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2397,7 +2396,7 @@
 		(uuid "dafed891-76ac-44cb-932b-0e0fc2145b79")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2409,7 +2408,7 @@
 		(uuid "16f3dd54-76e3-4ccc-b55b-30ffc2ea26c8")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2421,7 +2420,7 @@
 		(uuid "d2dfbf12-4fcb-445f-b384-f2ddc30a6545")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2433,7 +2432,7 @@
 		(uuid "dbd3311b-0a12-4e97-acb2-57251254952b")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2445,7 +2444,7 @@
 		(uuid "a9880913-b5b8-4fea-9d6b-37046d467499")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2457,7 +2456,7 @@
 		(uuid "185e1b3f-e53b-4eff-9035-7236c063907b")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2469,7 +2468,7 @@
 		(uuid "ba1f639e-1f67-4eca-9f67-537748f09571")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2481,7 +2480,7 @@
 		(uuid "f6d49041-f750-4439-8aea-d82743f45fb9")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2493,7 +2492,7 @@
 		(uuid "b0cdd7b5-875f-4d82-b73f-7c826f4d6dbc")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2505,7 +2504,7 @@
 		(uuid "61d4e27a-1598-4371-ad3d-0afb42dae799")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2517,7 +2516,7 @@
 		(uuid "015ec17f-e933-4aad-8394-d414050f5b5a")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2529,7 +2528,7 @@
 		(uuid "98c15713-dc25-41a2-99b3-f21a2a44222a")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2541,7 +2540,7 @@
 		(uuid "3e7f2059-61ff-4ce3-962d-533508ead5bb")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2553,7 +2552,7 @@
 		(uuid "dca6e41c-c96c-4048-9a26-a94129aadf29")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2565,7 +2564,7 @@
 		(uuid "d970b1ae-0ab2-4bdd-b725-990e2b7baa6d")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2577,7 +2576,7 @@
 		(uuid "25df94b0-d07c-494d-925f-5b21db1e505a")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2589,7 +2588,7 @@
 		(uuid "8756cc61-935d-4cfa-a250-b9e77db02d6a")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
@@ -2601,7 +2600,7 @@
 		(uuid "e2ce8f45-2265-4e66-89ab-b1f7ff991b87")
 		(effects
 			(font
-				(size 0.75 0.75)
+				(size 0.8 0.75)
 				(thickness 0.125)
 			)
 			(justify left bottom mirror)
