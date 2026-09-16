@@ -1762,6 +1762,28 @@
 			)
 		)
 	)
+	(gr_rect
+		(start 225.254 62.366)
+		(end 232.874 65.668)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "be17e268-7f5b-4ac3-9c6b-5f3c18d8134b")
+	)
+	(gr_rect
+		(start 235.414 62.366)
+		(end 243.034 65.668)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "c88bdd21-8996-4af6-98c8-d51dd8af7486")
+	)
 	(gr_poly
 		(pts
 			(xy 141.434 78.368) (xy 252.94 78.368) (xy 252.94 42.554) (xy 252.178 41.5) (xy 142.45 41.5) (xy 141.434 42.554)
@@ -1773,6 +1795,66 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "1314866f-3b95-4f70-90fe-eb24d1f467cb")
+	)
+	(gr_text "10  9  8  7  6  5  4  3  2  1"
+		(at 222.714 63.89 0)
+		(layer "F.SilkS")
+		(uuid "245cd478-ca4d-4104-9241-ded895b70d5d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{HK} _{MK} _{LK}\n"
+		(at 225.762 65.16 0)
+		(layer "F.SilkS")
+		(uuid "56b03a38-d57c-4ae5-8db5-89c3a5ff6626")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Player 2"
+		(at 225.762 67.192 0)
+		(layer "F.SilkS")
+		(uuid "5b6b28a7-23f1-4ddb-a511-5811d5f5328f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{HK} _{MK} _{LK}"
+		(at 236.176 65.16 0)
+		(layer "F.SilkS")
+		(uuid "d9718a2c-a5b4-4efb-ab66-1e744b1881c4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Player 1"
+		(at 236.176 67.192 0)
+		(layer "F.SilkS")
+		(uuid "f970a547-3c43-48db-af90-925967660ad9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
 	)
 	(segment
 		(start 250.67 46)
