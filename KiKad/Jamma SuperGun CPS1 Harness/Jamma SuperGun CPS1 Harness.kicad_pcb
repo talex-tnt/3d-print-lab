@@ -92,8 +92,8 @@
 		(layer "F.Cu")
 		(uuid "767374f2-1684-430d-afb9-dd7689099b3f")
 		(at 198.21 91.9)
-		(property "Reference" "ARCADE BOARD"
-			(at -1 -28.01 0)
+		(property "Reference" "CPS1 BOARD"
+			(at -1 -25.216 0)
 			(layer "F.SilkS")
 			(uuid "5d1db4b1-fe66-4c68-b4a9-c926a16cddb3")
 			(effects
@@ -140,16 +140,6 @@
 		(path "/6e069a2a-f682-42a3-abde-94cea3e2541b")
 		(sheetname "/")
 		(sheetfile "Jamma SuperGun CPS1 Harness.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5" "6" "8" "9" "10" "11" "12" "13" "14" "15" "16"
-					"17" "18" "19" "20" "21" "22" "23" "24" "25" "26" "27" "28" "A" "B"
-					"C" "D" "E" "F" "J" "K" "L" "M" "N" "P" "R" "S" "T" "U" "V" "W" "X"
-					"Y" "Z" "a" "b" "c" "d" "e" "f"
-				)
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -498,7 +488,7 @@
 		(pad "A" smd rect
 			(at -54.46 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "A_A")
 			(pintype "input")
@@ -507,7 +497,7 @@
 		(pad "B" smd rect
 			(at -50.5 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "B_B")
 			(pintype "input")
@@ -516,7 +506,7 @@
 		(pad "C" smd rect
 			(at -46.54 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+5V")
 			(pinfunction "C_C")
 			(pintype "input")
@@ -525,7 +515,7 @@
 		(pad "D" smd rect
 			(at -42.58 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+5V")
 			(pinfunction "D_D")
 			(pintype "input")
@@ -534,7 +524,7 @@
 		(pad "E" smd rect
 			(at -38.62 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/-5V")
 			(pinfunction "E_E")
 			(pintype "input")
@@ -543,7 +533,7 @@
 		(pad "F" smd rect
 			(at -34.66 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+12V")
 			(pinfunction "F_F")
 			(pintype "input")
@@ -552,7 +542,7 @@
 		(pad "J" smd rect
 			(at -26.74 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Coin Counter 2")
 			(pinfunction "J_J")
 			(pintype "input")
@@ -561,7 +551,7 @@
 		(pad "K" smd rect
 			(at -22.78 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Lockout 2")
 			(pinfunction "K_K")
 			(pintype "input")
@@ -570,7 +560,7 @@
 		(pad "L" smd rect
 			(at -18.82 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Speaker-")
 			(pinfunction "L_L")
 			(pintype "input")
@@ -579,7 +569,7 @@
 		(pad "M" smd rect
 			(at -14.86 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Audio GND")
 			(pinfunction "M_M")
 			(pintype "input")
@@ -588,7 +578,7 @@
 		(pad "N" smd rect
 			(at -10.9 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Video Green")
 			(pinfunction "N_N")
 			(pintype "input")
@@ -597,7 +587,7 @@
 		(pad "P" smd rect
 			(at -6.94 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Video Sync")
 			(pinfunction "P_P")
 			(pintype "input")
@@ -606,7 +596,7 @@
 		(pad "R" smd rect
 			(at -2.98 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Service Switch")
 			(pinfunction "R_R")
 			(pintype "input")
@@ -615,7 +605,7 @@
 		(pad "S" smd rect
 			(at 0.98 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Tilt Switch")
 			(pinfunction "S_S")
 			(pintype "input")
@@ -624,7 +614,7 @@
 		(pad "T" smd rect
 			(at 4.94 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Coin")
 			(pinfunction "T_T")
 			(pintype "input")
@@ -633,7 +623,7 @@
 		(pad "U" smd rect
 			(at 8.9 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Start")
 			(pinfunction "U_U")
 			(pintype "input")
@@ -642,7 +632,7 @@
 		(pad "V" smd rect
 			(at 12.86 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Up")
 			(pinfunction "V_V")
 			(pintype "input")
@@ -651,7 +641,7 @@
 		(pad "W" smd rect
 			(at 16.82 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Down")
 			(pinfunction "W_W")
 			(pintype "input")
@@ -660,7 +650,7 @@
 		(pad "X" smd rect
 			(at 20.78 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Left")
 			(pinfunction "X_X")
 			(pintype "input")
@@ -669,7 +659,7 @@
 		(pad "Y" smd rect
 			(at 24.74 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Right")
 			(pinfunction "Y_Y")
 			(pintype "input")
@@ -678,7 +668,7 @@
 		(pad "Z" smd rect
 			(at 28.7 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_LP")
 			(pinfunction "Z_Z")
 			(pintype "input")
@@ -687,7 +677,7 @@
 		(pad "a" smd rect
 			(at 32.66 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_MP")
 			(pinfunction "a_a")
 			(pintype "input")
@@ -696,7 +686,7 @@
 		(pad "b" smd rect
 			(at 36.62 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_HP")
 			(pinfunction "b_b")
 			(pintype "input")
@@ -705,7 +695,7 @@
 		(pad "c" smd rect
 			(at 40.58 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "unconnected-(J_FEMALE1-Padc)")
 			(pinfunction "c_c")
 			(pintype "input+no_connect")
@@ -714,7 +704,7 @@
 		(pad "d" smd rect
 			(at 44.54 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "unconnected-(J_FEMALE1-Padd)")
 			(pinfunction "d_d")
 			(pintype "input+no_connect")
@@ -723,7 +713,7 @@
 		(pad "e" smd rect
 			(at 48.5 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "e_e")
 			(pintype "input")
@@ -732,7 +722,7 @@
 		(pad "f" smd rect
 			(at 52.46 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "f_f")
 			(pintype "input")
@@ -745,7 +735,7 @@
 		(uuid "ab50f6c2-851e-486d-9f87-8ea9c3a0fedd")
 		(at 198.21 65)
 		(property "Reference" "CABINET/SUPERGUN"
-			(at -1 -10 0)
+			(at -1 -12.286 0)
 			(layer "F.SilkS")
 			(uuid "ce958bf9-9966-4f12-97bf-3ecc9567a8b8")
 			(effects
@@ -791,16 +781,6 @@
 		(path "/ec48b709-5631-41c2-8947-7e64b489b03a")
 		(sheetname "/")
 		(sheetfile "Jamma SuperGun CPS1 Harness.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5" "6" "8" "9" "10" "11" "12" "13" "14" "15" "16"
-					"17" "18" "19" "20" "21" "22" "23" "24" "25" "26" "27" "28" "A" "B"
-					"C" "D" "E" "F" "J" "K" "L" "M" "N" "P" "R" "S" "T" "U" "V" "W" "X"
-					"Y" "Z" "a" "b" "c" "d" "e" "f"
-				)
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1149,7 +1129,7 @@
 		(pad "A" smd rect
 			(at -54.46 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "A_A")
 			(pintype "input")
@@ -1158,7 +1138,7 @@
 		(pad "B" smd rect
 			(at -50.5 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "B_B")
 			(pintype "input")
@@ -1167,7 +1147,7 @@
 		(pad "C" smd rect
 			(at -46.54 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+5V")
 			(pinfunction "C_C")
 			(pintype "input")
@@ -1176,7 +1156,7 @@
 		(pad "D" smd rect
 			(at -42.58 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+5V")
 			(pinfunction "D_D")
 			(pintype "input")
@@ -1185,7 +1165,7 @@
 		(pad "E" smd rect
 			(at -38.62 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/-5V")
 			(pinfunction "E_E")
 			(pintype "input")
@@ -1194,7 +1174,7 @@
 		(pad "F" smd rect
 			(at -34.66 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/+12V")
 			(pinfunction "F_F")
 			(pintype "input")
@@ -1203,7 +1183,7 @@
 		(pad "J" smd rect
 			(at -26.74 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Coin Counter 2")
 			(pinfunction "J_J")
 			(pintype "input")
@@ -1212,7 +1192,7 @@
 		(pad "K" smd rect
 			(at -22.78 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Lockout 2")
 			(pinfunction "K_K")
 			(pintype "input")
@@ -1221,7 +1201,7 @@
 		(pad "L" smd rect
 			(at -18.82 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Speaker-")
 			(pinfunction "L_L")
 			(pintype "input")
@@ -1230,7 +1210,7 @@
 		(pad "M" smd rect
 			(at -14.86 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Audio GND")
 			(pinfunction "M_M")
 			(pintype "input")
@@ -1239,7 +1219,7 @@
 		(pad "N" smd rect
 			(at -10.9 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Video Green")
 			(pinfunction "N_N")
 			(pintype "input")
@@ -1248,7 +1228,7 @@
 		(pad "P" smd rect
 			(at -6.94 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Video Sync")
 			(pinfunction "P_P")
 			(pintype "input")
@@ -1257,7 +1237,7 @@
 		(pad "R" smd rect
 			(at -2.98 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Service Switch")
 			(pinfunction "R_R")
 			(pintype "input")
@@ -1266,7 +1246,7 @@
 		(pad "S" smd rect
 			(at 0.98 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/Tilt Switch")
 			(pinfunction "S_S")
 			(pintype "input")
@@ -1275,7 +1255,7 @@
 		(pad "T" smd rect
 			(at 4.94 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Coin")
 			(pinfunction "T_T")
 			(pintype "input")
@@ -1284,7 +1264,7 @@
 		(pad "U" smd rect
 			(at 8.9 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Start")
 			(pinfunction "U_U")
 			(pintype "input")
@@ -1293,7 +1273,7 @@
 		(pad "V" smd rect
 			(at 12.86 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Up")
 			(pinfunction "V_V")
 			(pintype "input")
@@ -1302,7 +1282,7 @@
 		(pad "W" smd rect
 			(at 16.82 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Down")
 			(pinfunction "W_W")
 			(pintype "input")
@@ -1311,7 +1291,7 @@
 		(pad "X" smd rect
 			(at 20.78 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Left")
 			(pinfunction "X_X")
 			(pintype "input")
@@ -1320,7 +1300,7 @@
 		(pad "Y" smd rect
 			(at 24.74 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P Right")
 			(pinfunction "Y_Y")
 			(pintype "input")
@@ -1329,7 +1309,7 @@
 		(pad "Z" smd rect
 			(at 28.7 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_LP")
 			(pinfunction "Z_Z")
 			(pintype "input")
@@ -1338,7 +1318,7 @@
 		(pad "a" smd rect
 			(at 32.66 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_MP")
 			(pinfunction "a_a")
 			(pintype "input")
@@ -1347,7 +1327,7 @@
 		(pad "b" smd rect
 			(at 36.62 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_LK")
 			(pinfunction "b_b")
 			(pintype "input")
@@ -1356,7 +1336,7 @@
 		(pad "c" smd rect
 			(at 40.58 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_MK")
 			(pinfunction "c_c")
 			(pintype "input")
@@ -1365,7 +1345,7 @@
 		(pad "d" smd rect
 			(at 44.54 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_HP")
 			(pinfunction "d_d")
 			(pintype "input")
@@ -1374,7 +1354,7 @@
 		(pad "e" smd rect
 			(at 48.5 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/2P_HK")
 			(pinfunction "e_e")
 			(pintype "input")
@@ -1383,7 +1363,7 @@
 		(pad "f" smd rect
 			(at 52.46 -19)
 			(size 2.35 8)
-			(layers "F.Mask" "B.Cu" "F.Paste")
+			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "/GND")
 			(pinfunction "f_f")
 			(pintype "input")
@@ -1456,12 +1436,6 @@
 		(path "/afe6199f-bf94-4960-905c-c7ca81325790")
 		(sheetname "/")
 		(sheetfile "Jamma SuperGun CPS1 Harness.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1762,6 +1736,62 @@
 			)
 		)
 	)
+	(gr_poly
+		(pts
+			(xy 177.756 58.937) (xy 178.518 59.699) (xy 177.756 60.461)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "0f460a1e-8a79-4b9d-9c22-10ba05f991c4")
+	)
+	(gr_rect
+		(start 170.136 57.794)
+		(end 174.708 61.604)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "8e073e69-0a6d-4162-98b2-fc6b754eac0d")
+	)
+	(gr_rect
+		(start 174.708 57.794)
+		(end 176.994 61.604)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "910729f6-875d-41f4-82f5-286523fae4be")
+	)
+	(gr_rect
+		(start 179.28 57.794)
+		(end 186.138 59.572)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "62b0d760-b36c-44ef-9fc3-6d6124914dc4")
+	)
+	(gr_rect
+		(start 179.28 59.826)
+		(end 186.138 61.604)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "1e30cec5-1bca-43dd-ab35-cbe4a5a08a8a")
+	)
 	(gr_rect
 		(start 225.254 62.366)
 		(end 232.874 65.668)
@@ -1951,6 +1981,198 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "^{LP}"
+		(at 226.27 51.698 0)
+		(layer "F.SilkS")
+		(uuid "33cd388e-b831-4355-8db9-ee0289afbe82")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B1}"
+		(at 226.27 52.714 0)
+		(layer "F.SilkS")
+		(uuid "d2e0d48e-3bfc-4ab5-804d-bc15c14a0d97")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{MP}"
+		(at 230.334 51.698 0)
+		(layer "F.SilkS")
+		(uuid "e1e9c454-29f2-46e0-bc83-3f62f354a3ed")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B2}"
+		(at 230.334 52.714 0)
+		(layer "F.SilkS")
+		(uuid "1590d74e-002e-419a-991d-c6348fac5f60")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{LK}"
+		(at 234.144 51.698 0)
+		(layer "F.SilkS")
+		(uuid "7b243b8a-8d31-459d-b3b3-6d4cb00782bd")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B3}"
+		(at 234.144 52.714 0)
+		(layer "F.SilkS")
+		(uuid "f612a905-4f06-4969-ac1e-e2d96468032c")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{MK}"
+		(at 238.208 51.698 0)
+		(layer "F.SilkS")
+		(uuid "362ed777-bafb-46bc-a2e3-6d604fe7bf12")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B4}"
+		(at 238.208 52.714 0)
+		(layer "F.SilkS")
+		(uuid "5ffba056-0cd4-4515-986d-e7452a63d054")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{HP}"
+		(at 242.018 51.698 0)
+		(layer "F.SilkS")
+		(uuid "a41cf13c-39a9-4da0-93b8-0b5337f24653")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B5}"
+		(at 242.018 52.714 0)
+		(layer "F.SilkS")
+		(uuid "bbf1aadd-9fb6-4d19-93eb-6710b5019f87")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{HK}"
+		(at 246.082 51.698 0)
+		(layer "F.SilkS")
+		(uuid "8fd50401-818b-4c2d-8999-2beb6401918c")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "^{B6}"
+		(at 246.082 52.714 0)
+		(layer "F.SilkS")
+		(uuid "987e7ae7-ee4d-4dfa-bf69-7fd400ece11b")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{B1} _{B2} _{B5}\n"
+		(at 170.39 59.064 0)
+		(layer "F.SilkS")
+		(uuid "f1eda571-a06b-4abc-8188-0e10dacd2b0e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{B3} _{B4} _{B6}\n"
+		(at 170.39 61.096 0)
+		(layer "F.SilkS")
+		(uuid "dab499ee-7c83-45e5-a7c3-89b09a832387")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{LP} _{MP} _{HP}\n"
+		(at 179.534 59.064 0)
+		(layer "F.SilkS")
+		(uuid "6cac9858-ea62-40f2-9fe2-fa04ddb96b0c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "_{LK} _{MK} _{HK}"
+		(at 179.534 61.096 0)
+		(layer "F.SilkS")
+		(uuid "d79633d0-daec-4d61-9c6f-6e751ef05aec")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "10  9  8  7  6  5  4  3  2  1"
 		(at 222.714 63.89 0)
 		(layer "F.SilkS")
@@ -2023,8 +2245,19 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "KICK HARNESS ADAPTER"
+		(at 197.568 59.572 0)
+		(layer "F.SilkS")
+		(uuid "980c504f-7aa9-4f64-ad23-ab982b5e39fd")
+		(effects
+			(font
+				(size 1.2 1.2)
+				(thickness 0.15)
+			)
+		)
+	)
 	(gr_text "^{GND}"
-		(at 142.704 51.698 0)
+		(at 144.736 51.698 0)
 		(layer "B.SilkS")
 		(uuid "7716d2e4-02ea-4a6e-86ae-a30c1c9b8b56")
 		(effects
@@ -2032,11 +2265,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{GND}"
-		(at 142.704 68.462 0)
+		(at 144.736 68.462 0)
 		(layer "B.SilkS")
 		(uuid "1379ac9f-1ee7-4d45-a3dc-f1b2c594cb83")
 		(effects
@@ -2044,11 +2277,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{GND}"
-		(at 146.768 51.698 0)
+		(at 148.8 51.698 0)
 		(layer "B.SilkS")
 		(uuid "5f2e0207-d579-4930-839c-1a550d4ffb4e")
 		(effects
@@ -2056,11 +2289,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{GND}"
-		(at 146.768 68.462 0)
+		(at 148.8 68.462 0)
 		(layer "B.SilkS")
 		(uuid "cf7fd728-bef0-457a-87ef-37901113a469")
 		(effects
@@ -2068,11 +2301,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+5V}"
-		(at 150.578 51.698 0)
+		(at 152.61 51.698 0)
 		(layer "B.SilkS")
 		(uuid "097091aa-cfb0-4909-a450-bf6682e610a9")
 		(effects
@@ -2080,11 +2313,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+5V}"
-		(at 150.578 68.462 0)
+		(at 152.61 68.462 0)
 		(layer "B.SilkS")
 		(uuid "21285dfe-e876-4ab5-a118-1e3dde67b727")
 		(effects
@@ -2092,11 +2325,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+5V}"
-		(at 154.642 51.698 0)
+		(at 156.674 51.698 0)
 		(layer "B.SilkS")
 		(uuid "dafed891-76ac-44cb-932b-0e0fc2145b79")
 		(effects
@@ -2104,11 +2337,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+5V}"
-		(at 154.642 68.462 0)
+		(at 156.674 68.462 0)
 		(layer "B.SilkS")
 		(uuid "16f3dd54-76e3-4ccc-b55b-30ffc2ea26c8")
 		(effects
@@ -2116,11 +2349,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{-5V}"
-		(at 158.452 51.698 0)
+		(at 160.484 51.698 0)
 		(layer "B.SilkS")
 		(uuid "d2dfbf12-4fcb-445f-b384-f2ddc30a6545")
 		(effects
@@ -2128,11 +2361,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{-5V}"
-		(at 158.452 68.462 0)
+		(at 160.484 68.462 0)
 		(layer "B.SilkS")
 		(uuid "dbd3311b-0a12-4e97-acb2-57251254952b")
 		(effects
@@ -2140,11 +2373,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+12V}"
-		(at 162.262 51.698 0)
+		(at 164.294 51.698 0)
 		(layer "B.SilkS")
 		(uuid "a9880913-b5b8-4fea-9d6b-37046d467499")
 		(effects
@@ -2152,11 +2385,11 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
 		)
 	)
 	(gr_text "^{+12V}"
-		(at 162.262 68.462 0)
+		(at 164.294 68.462 0)
 		(layer "B.SilkS")
 		(uuid "185e1b3f-e53b-4eff-9035-7236c063907b")
 		(effects
@@ -2164,7 +2397,151 @@
 				(size 0.75 0.75)
 				(thickness 0.125)
 			)
-			(justify left bottom)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{LP}"
+		(at 227.54 51.698 0)
+		(layer "B.SilkS")
+		(uuid "ba1f639e-1f67-4eca-9f67-537748f09571")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B1}"
+		(at 227.54 52.714 0)
+		(layer "B.SilkS")
+		(uuid "f6d49041-f750-4439-8aea-d82743f45fb9")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{MP}"
+		(at 231.604 51.698 0)
+		(layer "B.SilkS")
+		(uuid "b0cdd7b5-875f-4d82-b73f-7c826f4d6dbc")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B2}"
+		(at 231.604 52.714 0)
+		(layer "B.SilkS")
+		(uuid "61d4e27a-1598-4371-ad3d-0afb42dae799")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{LK}"
+		(at 235.414 51.698 0)
+		(layer "B.SilkS")
+		(uuid "015ec17f-e933-4aad-8394-d414050f5b5a")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B3}"
+		(at 235.414 52.714 0)
+		(layer "B.SilkS")
+		(uuid "98c15713-dc25-41a2-99b3-f21a2a44222a")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{MK}"
+		(at 239.478 51.698 0)
+		(layer "B.SilkS")
+		(uuid "3e7f2059-61ff-4ce3-962d-533508ead5bb")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B4}"
+		(at 239.478 52.714 0)
+		(layer "B.SilkS")
+		(uuid "dca6e41c-c96c-4048-9a26-a94129aadf29")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{HP}"
+		(at 243.288 51.698 0)
+		(layer "B.SilkS")
+		(uuid "d970b1ae-0ab2-4bdd-b725-990e2b7baa6d")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B5}"
+		(at 243.288 52.714 0)
+		(layer "B.SilkS")
+		(uuid "25df94b0-d07c-494d-925f-5b21db1e505a")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{HK}"
+		(at 247.352 51.698 0)
+		(layer "B.SilkS")
+		(uuid "8756cc61-935d-4cfa-a250-b9e77db02d6a")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "^{B6}"
+		(at 247.352 52.714 0)
+		(layer "B.SilkS")
+		(uuid "e2ce8f45-2265-4e66-89ab-b1f7ff991b87")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
 		)
 	)
 	(segment
