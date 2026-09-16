@@ -2,3 +2,4 @@
 *.FCBak
 KiKad/**/*.bak
 KiKad/**/*.lck
+KiKad/**/.history
