@@ -80,11 +80,20 @@ Current rating: distributor listings show 13 A per contact for the housing (one 
 
 Do not use a PC-PSU-looking connector without clear polarity marking: a Mini-Fit Jr 2x4 resembles PC EPS/PCIe 8-pin connectors. Mark polarity and pin 1 on the silkscreen, and label the cable so it cannot be mistaken for a PC power lead.
 
+### 2.6 Molex cable, 50 cm: sourcing
+
+- Required: **female-to-female** Mini-Fit Jr 8-circuit harness, receptacle housing (39-01-2080 / 5557-08R) at both ends, **1:1** wiring (pin N to pin N, no crossovers), 16 AWG, 500 mm.
+- Off-the-shelf Molex 215325-series female-to-female 8-circuit cables exist (150 mm and 300 mm in the listings checked, 16 AWG, 9 A per contact). They are sold in bags of 25 at distributors, so they are not a cheap option. Use 9 A per contact as the design figure for the harness.
+- Recommended: **build it**. Buy 2 housings (39-01-2080), 16 female terminals (5556 series, at least 2 spares), 16 AWG wire (8 pieces of about 50 cm plus scrap) and a crimping tool for 5556 terminals. Search terms: "Mini-Fit Jr 4.2mm 2x4 8 pin housing terminal kit", "5557 5559 4.2mm connector kit", "Molex 5556 terminal crimping tool".
+- Alternative: order a **custom harness** from an AliExpress cable maker. Specify: 4.2 mm Mini-Fit Jr 2x4 8-pin receptacle housing (5557-08R) at both ends, 16 AWG, 500 mm, straight 1:1 wiring, and attach a pin table.
+- Do not use PC EPS/PCIe extension cables: they are male-to-female and could be confused with a PC power cable.
+- The Molex harness and the ribbon should be the same length, because the two adapter boards are separated by whichever cable is shorter.
+
 ## 3. Flat (signal) cable
 
 ### 3.1 Decision
 
-- **One 50-way IDC ribbon (2x25)**: 1.27 mm wire pitch, 2.54 mm IDC connector pitch, female IDC socket at both ends, 1:1 (pin N to pin N), target length 30 cm.
+- **One 50-way IDC ribbon (2x25)**: 1.27 mm wire pitch, 2.54 mm IDC connector pitch, female IDC socket at both ends, 1:1 (pin N to pin N), **length 50 cm**.
 - Why 50-way: the ribbon carries 38 signals (see 3.2). A 40-way leaves only 2 spare conductors for GND, and a 56-way (2x28) is not a common standard size. The 50-way leaves 12 spare conductors.
 - Fallback if a 50-way cannot be sourced: two 26-way (2x13) ribbons (52 conductors, 14 spare). This is the only case in which the design uses two flat cables.
 
@@ -115,7 +124,7 @@ Route every remaining finger, including the ones unused in plain JAMMA, so the a
 - All extra GND conductors connect to the GND pour at both ends.
 - Carry the video GND finger on the ribbon.
 - A 28 AWG ribbon conductor is good for roughly 1 A (confirm with the cable data). The speaker lines can carry about 0.6 A at 3 W into 8 ohm, hence the doubled conductors.
-- Keep the ribbon short: video quality degrades with length. Target 30 cm, keep it under about 50 cm.
+- Keep the ribbon short: video quality degrades with length. 50 cm is the chosen length. A 1 m ribbon is possible but only after testing a first cable with a real board (noise pickup and crosstalk grow with length).
 - A pin-by-pin table (JAMMA finger to ribbon pin) is still to be written once the JAMMA/CHAMMA reference pinout is chosen.
 
 ### 3.4 Board connectors
@@ -125,10 +134,11 @@ Route every remaining finger, including the ones unused in plain JAMMA, so the a
 
 ### 3.5 Purchasing (cheap, standard parts)
 
-- **Chosen cable:** AliExpress item 33029492417 (`https://it.aliexpress.com/item/33029492417.html`), a grey flat ribbon with female IDC connectors, 2.54 mm pitch, 30 cm, listed for 105 C and 300 V, with 6 to 50 pin variants. **Select the 50-pin variant.**
-- Check before ordering: a female socket at both ends, the red pin-1 stripe on the same side at both ends, and the conductor gauge (not stated in the listing).
-- On arrival: continuity test of all 50 conductors, and no shorts between neighbouring conductors.
-- **Alternative:** bare 50-conductor ribbon plus two 50-pin female IDC sockets, crimped in a vise. The listing links its IDC sockets at `https://www.aliexpress.com/item/1005001400147026.html`.
+- **Chosen cable:** AliExpress item 4000524910614 (`https://www.aliexpress.com/item/4000524910614.html`). Listed as a grey flat ribbon: IDC connector pitch 2.54 mm, cable pitch 1.27 mm, 28 AWG, 300 V, 105 C, lengths 10 to 50 cm, 6 to 64 pins, female IDC connectors, 2 cables per pack. **Select the 50-pin variant, 50 cm.**
+- The listing photo shows one female IDC socket at each end, with the red pin-1 stripe along one edge. The cable is bent in the photo, so it does not prove that both sockets are crimped with the same orientation.
+- Check before ordering: the variant list (50 pin, 50 cm) and the conductor material (not stated: copper or copper-clad aluminium).
+- On arrival: pin-1 marker (triangle on the socket) on the same side at both ends, 50 conductors, continuity of all 50 conductors, no shorts between neighbouring conductors, and a resistance check of a couple of conductors.
+- **Alternative:** bare 50-conductor ribbon plus two 50-pin female IDC sockets, crimped in a vise. Gives any length.
 
 ## 4. Adapter boards
 
@@ -165,9 +175,9 @@ Route every remaining finger, including the ones unused in plain JAMMA, so the a
 
 ## 7. Open items
 
-- Final cable length (ribbon and Molex). The ribbon is planned at 30 cm.
+- Molex 50 cm harness: choose DIY crimping or a custom AliExpress harness.
 - Whether to include the per-end 27a/27b jumpers.
 - Whether to use a 2x5 Molex for extra GND.
 - Confirm CHAMMA pin 27 assignment and the a/b face convention against your reference documents.
 - Write the pin-by-pin table (JAMMA finger to ribbon pin) once the reference pinout is chosen.
-- Verify the 50-pin variant of the AliExpress ribbon (female at both ends, 1:1, conductor gauge) before ordering.
+- Verify the 50-pin, 50 cm variant of the AliExpress ribbon (1:1 orientation, conductor material) before ordering.
