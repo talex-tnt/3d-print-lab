@@ -25,6 +25,12 @@ R_INNER   = 5.0    # fillet on the inner gusset corners
 R_OUTER   = 2.0    # fillet on the outer profile corners
 R_END     = 1.2    # fillet on the edges of the two end faces
 
+# --- through bolts into the BESTA cabinet side ---
+CABINET_SIDE = 19.0  # measured thickness of the tall cabinet side (18-19 mm)
+WASHER_T  = 1.0    # wide M4 washer (DIN 9021)
+NUT_H     = 5.0    # M4 nyloc nut (DIN 985)
+HEAD_K    = 2.5    # height of an M4 countersunk head (ISO 10642)
+
 OUT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
 # --------------------------------------
 
@@ -62,6 +68,13 @@ def bracket():
     return body.removeSplitter()
 
 
+
+def bolt_length(plate):
+    """Shortest standard countersunk bolt that fully engages a nyloc nut through plate + cabinet side."""
+    proud = max(0.0, HEAD_K - (CSK_D - SCREW_D) / 2)   # head standing out of the printed countersink
+    need = proud + plate + CABINET_SIDE + WASHER_T + NUT_H + 1.0
+    return need, next(l for l in (20, 25, 30, 35, 40, 45, 50) if l >= need)
+
 doc = App.newDocument("TopPanelBrackets")
 b = bracket()
 o = doc.addObject("Part::Feature", "LBracket"); o.Shape = b
@@ -69,3 +82,5 @@ doc.recompute()
 doc.saveAs(os.path.join(OUT_DIR, "top_panel_brackets.FCStd"))
 Mesh.Mesh(b.tessellate(0.05)).write(os.path.join(OUT_DIR, "l_bracket_x4.stl"))
 print("l_bracket_x4.stl volume cm3:", round(b.Volume / 1000, 1), "valid:", b.isValid(), "bbox:", b.BoundBox)
+need, length = bolt_length(PLATE)
+print(f"L brackets: bolts need {need:.1f} mm -> use M4 x {length} countersunk, washer and nyloc nut")

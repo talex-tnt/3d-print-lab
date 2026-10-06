@@ -57,6 +57,12 @@ R_OUTER   = 1.5    # fillet on outer corners
 R_SLOT    = 0.8    # fillet in the corners where the glass sits (keep small)
 R_END     = 1.0    # fillet on the edges of the end faces
 
+# --- through bolts into the BESTA cabinet side ---
+CABINET_SIDE = 19.0  # measured thickness of the tall cabinet side (18-19 mm)
+WASHER_T  = 1.0    # wide M4 washer (DIN 9021)
+NUT_H     = 5.0    # M4 nyloc nut (DIN 985)
+HEAD_K    = 2.5    # height of an M4 countersunk head (ISO 10642)
+
 OUT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
 # ------------------------------------------------------------------------
 
@@ -189,6 +195,13 @@ def check_fit(clip, ref, glass):
           f" gap to bracket {clip.distToShape(ref)[0]:.2f} mm")
 
 
+
+def bolt_length(plate):
+    """Shortest standard countersunk bolt that fully engages a nyloc nut through plate + cabinet side."""
+    proud = max(0.0, HEAD_K - (CSK_D - SCREW_D) / 2)   # head standing out of the printed countersink
+    need = proud + plate + CABINET_SIDE + WASHER_T + NUT_H + 1.0
+    return need, next(l for l in (20, 25, 30, 35, 40, 45, 50) if l >= need)
+
 doc = App.newDocument("GlassShelfSupports")
 side = side_bracket()
 clip = anti_tip_clip()
@@ -212,3 +225,5 @@ for shape, name in ((side, "side_bracket_x2.stl"), (clip, "anti_tip_clip_x2.stl"
     m.write(os.path.join(OUT_DIR, name))
     print(name, "volume cm3:", round(shape.Volume / 1000, 1), "valid:", shape.isValid(),
           "bbox:", shape.BoundBox)
+need, length = bolt_length(PLATE)
+print(f"side brackets: bolts need {need:.1f} mm -> use M4 x {length} countersunk, washer and nyloc nut")

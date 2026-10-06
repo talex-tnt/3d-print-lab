@@ -107,3 +107,5 @@ All dimensions (glass, felt, metal bracket, clip, side bracket) and the fillet r
 ```
 
 This regenerates the `.FCStd` model and both STL files in this folder.
+
+The script also prints the bolt length needed for the cabinet sides from `CABINET_SIDE` (measured: 18–19 mm, set to 19) and the washer and nut sizes. Rerun it if your sides differ.

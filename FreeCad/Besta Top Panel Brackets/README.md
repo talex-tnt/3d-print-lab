@@ -81,3 +81,5 @@ All dimensions, including the fillet radii (`R_INNER`, `R_OUTER`, `R_END`), are 
 ```
 
 This regenerates the `.FCStd` model and the STL file in this folder.
+
+The script also prints the bolt length needed for the cabinet sides from `CABINET_SIDE` (measured: 18–19 mm, set to 19) and the washer and nut sizes. Rerun it if your sides differ.
