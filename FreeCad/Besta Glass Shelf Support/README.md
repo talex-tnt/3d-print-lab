@@ -30,12 +30,12 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 | 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 30 × 5.8 mm, 3 countersunk holes) | wall |
 | 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](#fixing-into-a-thick-stone-wall) | bracket → wall |
 | 4 | M4 × 8 screw (any head) | clip set screws (2 per clip), self-tap into the plastic |
-| 6 | M4 × 30 countersunk bolt (ISO 10642 / DIN 7991) | side brackets → through the cabinet side |
+| 6 | M4 × 35 countersunk bolt (ISO 10642 / DIN 7991) | side brackets → through the cabinet side |
 | 6 | M4 washer, wide (DIN 9021) | inside the cabinet |
 | 6 | M4 nyloc nut (DIN 985), or a plain nut with medium (blue) threadlocker | inside the cabinet |
 | ~1 m | 1 mm adhesive felt tape, 10 mm wide | every face that touches the glass |
 
-**Why bolt through the cabinet?** BESTÅ frame sides are particleboard skins with a honeycomb paper core, so wood screws in the middle of a side panel hold poorly. A bolt with a wide washer inside holds firmly. M4 × 30 suits sides up to ~19 mm thick; use M4 × 35 if yours are thicker.
+**Why bolt through the cabinet?** BESTÅ frame sides are particleboard skins with a honeycomb paper core, so wood screws in the middle of a side panel hold poorly. A bolt with a wide washer inside holds firmly. The BESTÅ sides measure 18–19 mm, so use **M4 × 35**. Through a 5–6 mm printed plate, the side, a washer and a 5 mm tall nyloc nut, an M4 × 30 would be ~2 mm too short, while M4 × 35 leaves a few mm of thread past the nut.
 
 ## Before you start
 

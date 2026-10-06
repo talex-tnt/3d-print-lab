@@ -24,12 +24,12 @@ Fixes an IKEA **BESTÅ oak veneer top panel (180 × 42 × 2 cm, solid particlebo
 | 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg) | wall |
 | 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](../Besta%20Glass%20Shelf%20Support/README.md#fixing-into-a-thick-stone-wall) | metal bracket → wall |
 | 4–6 | 3.5 × 16 countersunk chipboard screw | metal bracket arm → underside of the panel |
-| 8 | M4 × 30 countersunk bolt (ISO 10642 / DIN 7991) | L brackets → through the cabinet side |
+| 8 | M4 × 35 countersunk bolt (ISO 10642 / DIN 7991) | L brackets → through the cabinet side |
 | 8 | M4 washer, wide (DIN 9021) | inside the cabinet |
 | 8 | M4 nyloc nut (DIN 985), or a plain nut with medium (blue) threadlocker | inside the cabinet |
 | 8 | 3.5 × 16 countersunk chipboard screw (e.g. Spax) | L brackets → underside of the panel |
 
-- **Cabinet side:** BESTÅ frame sides have a honeycomb paper core, so bolt through them rather than using wood screws. M4 × 30 suits sides up to ~19 mm thick; use M4 × 35 if yours are thicker.
+- **Cabinet side:** BESTÅ frame sides have a honeycomb paper core, so bolt through them rather than using wood screws. The BESTÅ sides measure 18–19 mm, so use **M4 × 35**. Through a 5–6 mm printed plate, the side, a washer and a 5 mm tall nyloc nut, an M4 × 30 would be ~2 mm too short, while M4 × 35 leaves a few mm of thread past the nut.
 - **Top panel:** it is solid particleboard. A 3.5 × 16 screw goes ~11 mm into the 20 mm panel through a printed bracket (5 mm), or ~10 mm through a metal arm (5.8 mm), so it never comes through the top. Don't use the long shelf screws supplied with the metal brackets: they would go through the panel.
 
 ## Printing (Bambu Lab A1 mini)
