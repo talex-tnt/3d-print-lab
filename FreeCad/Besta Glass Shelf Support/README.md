@@ -12,7 +12,7 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 | File | Qty | What it is |
 |---|---|---|
-| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides along the arm and around the wall plate of a metal bracket, flush with the wall, with a 5 mm lip over the back edge of the glass. It sticks out only ~22 mm from the wall: the metal bracket carries the glass, and the clip only stops the back edge from lifting. 2 M4 set screws from below lock it. |
+| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides along the arm and around the wall plate of a metal bracket, flush with the wall, with a 5 mm lip over the back edge of the glass. It sticks out only ~21 mm from the wall: the metal bracket carries the glass, and the clip only stops the back edge from lifting. 2 M4 set screws from below lock it. |
 | `side_bracket_x2.stl` | 2 | Sideways U, 170 mm long, bolted to the cabinet side; the glass end slides into it. It is symmetric, so for the other side just rotate it 180°. |
 | `glass_shelf_supports.py` | – | Parametric FreeCAD script that generates everything. |
 | `glass_shelf_supports.FCStd` | – | FreeCAD model. |
@@ -27,7 +27,7 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 
 | Qty | Item | Where |
 |---|---|---|
-| 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 30 × 5.8 mm, 3 countersunk holes) | wall |
+| 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 25 × 5 mm, 3 countersunk holes) | wall |
 | 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](#fixing-into-a-thick-stone-wall) | bracket → wall |
 | 4 | M4 × 8 screw (any head) | clip set screws (2 per clip), self-tap into the plastic |
 | 6 | M4 × 35 countersunk bolt (ISO 10642 / DIN 7991) | side brackets → through the cabinet side |
@@ -40,8 +40,8 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 ## Before you start
 
 1. **Glass thickness.** The IKEA spec is 0.4 cm. Measure it with a caliper and set `GLASS_T` if it differs.
-2. **Metal brackets.** Measure the arm width and thickness (`BAR_W`, default 38, and `BAR_T`, default 5.8). Also measure the wall plate width and thickness (`PLATE_W`, default 100, and `PLATE_T`, default 5.8) and how far the plate rises above the top of the arm (`PLATE_UP`, default 24). Then regenerate the clip.
-3. **Depth.** The back edge of the glass ends up about 10 mm from the wall: 5.8 mm of plate, plus 4 mm to clear the bend between plate and arm (`BEND_R`). Check that this works with how far your cabinets stand from the wall.
+2. **Metal brackets.** The wall plate is measured: 100 × 25 × 5 mm (`PLATE_W`, `PLATE_T`, and `PLATE_UP` = 25 − 5 = 20 mm above the arm). Still to confirm: the arm width (`BAR_W`, assumed 38) and thickness (`BAR_T`, assumed 5, same steel as the plate). Regenerate the clip if they differ.
+3. **Depth.** The back edge of the glass ends up about 9 mm from the wall: 5 mm of plate, plus 4 mm to clear the bend between plate and arm (`BEND_R`). Check that this works with how far your cabinets stand from the wall.
 4. **Gap between the cabinets (side brackets only).** It must be at least **1808 mm**: 1800 of glass, plus 3 mm of U back wall on each side, plus 2 mm of play. If it is smaller, set `BACK = 0`: the U becomes an L and the glass rests on it with no top lip. Or leave the side brackets out.
 
 ## Printing (Bambu Lab A1 mini)

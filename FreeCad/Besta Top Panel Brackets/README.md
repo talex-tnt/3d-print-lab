@@ -30,7 +30,7 @@ Fixes an IKEA **BESTÅ oak veneer top panel (180 × 42 × 2 cm, solid particlebo
 | 8 | 3.5 × 16 countersunk chipboard screw (e.g. Spax) | L brackets → underside of the panel |
 
 - **Cabinet side:** BESTÅ frame sides have a honeycomb paper core, so bolt through them rather than using wood screws. The BESTÅ sides measure 18–19 mm, so use **M4 × 35**. Through a 5–6 mm printed plate, the side, a washer and a 5 mm tall nyloc nut, an M4 × 30 would be ~2 mm too short, while M4 × 35 leaves a few mm of thread past the nut.
-- **Top panel:** it is solid particleboard. A 3.5 × 16 screw goes ~11 mm into the 20 mm panel through a printed bracket (5 mm), or ~10 mm through a metal arm (5.8 mm), so it never comes through the top. Don't use the long shelf screws supplied with the metal brackets: they would go through the panel.
+- **Top panel:** it is solid particleboard. A 3.5 × 16 screw goes ~11 mm into the 20 mm panel through a printed bracket (5 mm), or ~11 mm through a metal arm (5 mm), so it never comes through the top. Don't use the long shelf screws supplied with the metal brackets: they would go through the panel.
 
 ## Printing (Bambu Lab A1 mini)
 
@@ -49,8 +49,8 @@ Stand each L bracket on its L profile (40 mm tall), so the layers follow the pro
 ## Before you start
 
 - **Width:** the panel is exactly 180 cm, so the gap between the tall cabinets must be at least 1800 mm. The L brackets take no extra width.
-- **Depth:** the panel is 42 cm deep against 40 cm cabinets. Its back edge sits ~6 mm off the wall, in front of the metal wall plates, so it sticks out about 2.6 cm in front of cabinets that touch the wall.
-- **Wall plates:** they rise ~24 mm above the arm, so they show ~4 mm above the back edge of the 20 mm panel. At 192 cm high this can't be seen.
+- **Depth:** the panel is 42 cm deep against 40 cm cabinets. Its back edge sits ~5 mm off the wall, in front of the metal wall plates, so it sticks out about 2.5 cm in front of cabinets that touch the wall.
+- **Wall plates:** they are 25 mm tall, so they rise 20 mm above the 5 mm arm, exactly the thickness of the panel. They end flush with its top and stay hidden behind it.
 
 ## Installation
 

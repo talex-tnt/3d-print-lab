@@ -30,13 +30,13 @@ CSK_D     = 8.0    # countersink diameter
 
 # --- anti-tip clip (a frame around the wall plate of a metal bracket, flush with the wall, with a lip
 #     over the back edge of the glass) ---
-# Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type): wall plate 100 x 30 x 5.8 mm,
+# Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type): wall plate 100 x 25 x 5 mm (measured),
 # arm a flat bar laid flat, leaving the plate bottom edge. MEASURE YOURS and adjust.
 BAR_W     = 38.0   # arm width
-BAR_T     = 5.8    # arm thickness
+BAR_T     = 5.0    # arm thickness (same steel as the plate)
 PLATE_W   = 100.0  # wall plate width
-PLATE_T   = 5.8    # wall plate thickness (the clip frame is just as thick, so both sit flush on the wall)
-PLATE_UP  = 24.0   # how far the wall plate rises above the top of the arm
+PLATE_T   = 5.0    # wall plate thickness (the clip frame is just as thick, so both sit flush on the wall)
+PLATE_UP  = 20.0   # how far the wall plate rises above the top of the arm (25 mm plate - 5 mm arm)
 BEND_R    = 4.0    # clearance for the bend between plate and arm: the back edge of the glass sits at PLATE_T + BEND_R
 FIT       = 0.4    # clearance around the arm and the plate
 CLIP_SIDE = 10.0   # frame width left and right of the plate
