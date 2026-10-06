@@ -1,6 +1,9 @@
 # BESTÅ Top Panel Brackets
 
-Small hidden L brackets that fix an IKEA **BESTÅ oak veneer top panel (180 × 42 × 2 cm, solid particleboard)** between two tall BESTÅ cabinets, for example flush with their tops. One leg is bolted to the cabinet side and the other is screwed up into the underside of the panel. Nothing is visible from the front, and nothing sits between the panel end and the cabinet.
+Fixes an IKEA **BESTÅ oak veneer top panel (180 × 42 × 2 cm, solid particleboard)** between two tall BESTÅ cabinets, for example flush with their tops:
+
+- **It is carried by 2 metal wall brackets.** They are flat-bar T brackets with 25 cm arms, 40 cm from each end, screwed up into the panel, so the panel stands on the wall alone.
+- **4 small printed L brackets lock its ends** to the cabinet sides: one leg is bolted to the cabinet, the other is screwed up into the panel. Nothing is visible from the front, and nothing sits between the panel end and the cabinet. To move a cabinet later, unbolt its two L brackets and the panel stays up.
 
 ![Overview](overview.png)
 
@@ -18,13 +21,16 @@ Small hidden L brackets that fix an IKEA **BESTÅ oak veneer top panel (180 × 4
 
 | Qty | Item | Where |
 |---|---|---|
-| 8 | M4 × 30 countersunk bolt (ISO 10642 / DIN 7991) | brackets → through the cabinet side |
+| 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg) | wall |
+| 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](../Besta%20Glass%20Shelf%20Support/README.md#fixing-into-a-thick-stone-wall) | metal bracket → wall |
+| 4–6 | 3.5 × 16 countersunk chipboard screw | metal bracket arm → underside of the panel |
+| 8 | M4 × 30 countersunk bolt (ISO 10642 / DIN 7991) | L brackets → through the cabinet side |
 | 8 | M4 washer, wide (DIN 9021) | inside the cabinet |
-| 8 | M4 nyloc nut (DIN 985), or domed cap nut (DIN 1587) | inside the cabinet |
-| 8 | 3.5 × 16 countersunk chipboard screw (e.g. Spax) | brackets → underside of the top panel |
+| 8 | M4 nyloc nut (DIN 985), or a plain nut with medium (blue) threadlocker | inside the cabinet |
+| 8 | 3.5 × 16 countersunk chipboard screw (e.g. Spax) | L brackets → underside of the panel |
 
-- **Cabinet side:** BESTÅ frame sides have a honeycomb paper core, so bolt through them rather than using wood screws. M4 × 30 works for sides up to ~19 mm thick; use M4 × 35 if yours are thicker.
-- **Top panel:** it is solid particleboard. A 3.5 × 16 screw goes 11 mm into the 20 mm panel, so it never comes through the top.
+- **Cabinet side:** BESTÅ frame sides have a honeycomb paper core, so bolt through them rather than using wood screws. M4 × 30 suits sides up to ~19 mm thick; use M4 × 35 if yours are thicker.
+- **Top panel:** it is solid particleboard. A 3.5 × 16 screw goes ~11 mm into the 20 mm panel through a printed bracket (5 mm), or ~10 mm through a metal arm (5.8 mm), so it never comes through the top. Don't use the long shelf screws supplied with the metal brackets: they would go through the panel.
 
 ## Printing (Bambu Lab A1 mini)
 
@@ -38,22 +44,33 @@ Small hidden L brackets that fix an IKEA **BESTÅ oak veneer top panel (180 × 4
 
 ![Print orientation](print_orientation.png)
 
-Stand each bracket on its L profile (40 mm tall), so the layers follow the profile and the corner is as strong as possible. The 4 brackets fit on one plate.
+Stand each L bracket on its L profile (40 mm tall), so the layers follow the profile and the corner is as strong as possible. All 4 fit on one plate.
+
+## Before you start
+
+- **Width:** the panel is exactly 180 cm, so the gap between the tall cabinets must be at least 1800 mm. The L brackets take no extra width.
+- **Depth:** the panel is 42 cm deep against 40 cm cabinets. Its back edge sits ~6 mm off the wall, in front of the metal wall plates, so it sticks out about 2.6 cm in front of cabinets that touch the wall.
+- **Wall plates:** they rise ~24 mm above the arm, so they show ~4 mm above the back edge of the 20 mm panel. At 192 cm high this can't be seen.
 
 ## Installation
 
-1. **Check the fit.** The panel is exactly 180 cm, so the gap between the tall cabinets must be at least 1800 mm. The brackets take no extra width. The panel is 42 cm deep against 40 cm cabinets, so decide whether the 2 cm overhang goes at the front (covers the cabinet edges) or at the back.
-2. **Mark the height.** For a panel flush with the cabinet tops (192 cm), the top of each bracket sits **20 mm below the cabinet top**. A 20 mm offcut of wood makes a good spacer.
-3. **Position the brackets.** Use 2 brackets per side, about **30 mm from the front and back edges** (see the plan view above).
-4. **Drill the cabinet side.** Use each bracket as a template and drill **4.5 mm** through the cabinet side at its 2 holes. Clamp a scrap block inside so the melamine doesn't chip.
-5. **Bolt the brackets.** Fit the countersunk bolts from the bracket side, and the washers and nuts inside the cabinet.
-6. **Lay the panel.** Rest the panel on the 4 brackets and check that it is level and flush.
-7. **Screw into the panel.** From below, drill **2.5 mm** pilot holes into the panel through the bracket holes. Wrap tape on the bit at **13 mm** as a depth stop, so you never come out through the veneer. Then drive the 3.5 × 16 screws.
+1. **Mark the height.** For a panel flush with the cabinet tops (192 cm), the top of the metal arms and of the L brackets sits **20 mm below the cabinet top**. A 20 mm offcut of wood makes a good spacer.
+2. **Metal brackets.** Mount the 2 metal brackets on the wall **40 cm from each end of the gap** (100 cm apart), level with each other. Use a spirit level on each one and a long straight edge across both. See the stone wall notes for the fixings.
+3. **L brackets.** Use 2 per side, about **30 mm from the front and back edges** (see the plan view above), at the same height as the arms. Lay the straight edge on the arms to transfer it.
+4. **Drill the cabinet sides.** Use each L bracket as a template and drill **4.5 mm** through the cabinet side at its 2 holes. Clamp a scrap block inside so the melamine doesn't chip.
+5. **Bolt the L brackets.** Fit the countersunk bolts from the bracket side, and the washers and nuts inside the cabinet.
+6. **Lay the panel.** Rest the panel on the 2 arms and the 4 L brackets. Push it back against the wall plates and check that it is level and flush.
+7. **Screw from below.** Drill **2.5 mm** pilot holes into the panel through the holes of the arms and the L brackets. Wrap tape on the bit at **13 mm** as a depth stop, so you never come out through the veneer. Then drive the 3.5 × 16 screws.
 
-## Notes
+## How stiff is it?
 
-- **Sag.** 20 mm particleboard free over 1.8 m sags roughly 1 cm from its own weight, and more with load and over time. For books or heavy items, add a hidden support at mid-span (for example a low wall bracket screwed up into the underside, like the center bracket in [Besta Glass Shelf Support](../Besta%20Glass%20Shelf%20Support/)).
-- **IKEA fittings.** The mounting fittings supplied with the panel are meant for placing it on top of BESTÅ cabinets and are not needed here.
+Rough estimates of the sag of the 1.8 m panel:
+
+| Support | 20 mm oak top panel |
+|---|---|
+| Only at the ends (L brackets alone) | ~11 mm, more over time |
+| 2 brackets 30 cm from the ends | ~1.6 mm |
+| **2 brackets 40 cm from the ends** | **< 0.5 mm**, even with 10 kg on top |
 
 ## Changing the design
 

@@ -28,18 +28,22 @@ DROP      = 46.0   # how far the plate extends below the resting surface
 SCREW_D   = 4.5    # screw hole (M4 through bolts or 3.5 mm chipboard screws)
 CSK_D     = 8.0    # countersink diameter
 
-# --- center bracket (wall mounted, supports the middle of the glass) ---
-C_WIDTH   = 40.0   # width
-C_ARM     = 165.0  # reach from the wall (printed lying down: A1 mini bed 180x180)
-C_H       = 120.0  # height below the resting surface
-C_PLATE   = 8.0    # wall plate thickness
-C_LT      = 8.0    # arm thickness
-C_STRUT   = 10.0   # diagonal strut thickness
-GLASS_BACK = 10.0  # distance from wall to the back edge of the glass (min. 4)
-C_LIP     = 12.0   # top lip over the back edge of the glass
-WALL_SCREW = 5.2   # wall screw slot width (6 mm plug + 4.5/5 mm screw)
-SLOT_LEN  = 6.0    # slot travel for height adjustment (+-3 mm)
-
+# --- anti-tip clip (slides on the arm of a metal wall bracket, holds the back edge of the glass) ---
+# Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type): wall plate 100 x 30 x 5.8 mm,
+# arm a flat bar laid flat, leaving the plate bottom edge. MEASURE YOURS and adjust.
+BAR_W     = 38.0   # arm width
+BAR_T     = 5.8    # arm thickness
+PLATE_T   = 5.8    # wall plate thickness
+PLATE_UP  = 24.0   # how far the wall plate rises above the top of the arm
+BEND_R    = 4.0    # clearance for the bend between plate and arm
+FIT       = 0.4    # clearance around the arm
+CLIP_W    = 100.0  # clip width (covers the wall plate)
+CLIP_WALL = 4.0    # front wall thickness: the back edge of the glass ends up at PLATE_T + 0.3 + CLIP_WALL from the wall
+CLIP_LIP  = 12.0   # how far the lip covers the glass
+CLIP_LIP_T = 4.0   # lip thickness
+CLIP_REACH = 25.0  # how far the clip runs along the arm
+CLIP_FLOOR = 4.0   # thickness under the arm
+SET_D     = 3.4    # set screw hole (M4 screw self-taps into the plastic)
 OUT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
 # ------------------------------------------------------------------------
 
@@ -81,53 +85,40 @@ def side_bracket():
     return body.removeSplitter()
 
 
-def center_bracket():
-    # profile in the YZ plane (Y = out from the wall), extruded along X
-    def pr(pts):
-        v = [App.Vector(0, y, z) for y, z in pts]
-        return Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(C_WIDTH, 0, 0))
-
-    z_top = SLOT + 4 + 22          # plate rises above the glass for the upper screw
-    z_bot = -C_H - 22              # and drops below the strut foot for the lower one
-    plate = pr([(0, z_bot), (C_PLATE, z_bot), (C_PLATE, z_top), (0, z_top)])
-    arm = pr([(0, -C_LT), (C_ARM, -C_LT), (C_ARM, 0), (0, 0)])
-    back = pr([(0, 0), (GLASS_BACK, 0), (GLASS_BACK, SLOT), (0, SLOT)])
-    lip = pr([(0, SLOT), (GLASS_BACK + C_LIP, SLOT), (GLASS_BACK + C_LIP, SLOT + 4), (0, SLOT + 4)])
-    # diagonal strut from the plate foot to 80% of the arm
-    ya, za = C_PLATE, -C_H
-    yb, zb = C_ARM * 0.8, -C_LT
-    import math
-    dy, dz = yb - ya, zb - za
-    n = math.hypot(dy, dz)
-    oy, oz = -dz / n * C_STRUT, dy / n * C_STRUT   # perpendicular offset
-    strut = pr([(ya, za), (yb, zb), (yb + oy, zb + oz), (ya + oy, za + oz)])
-    strut = strut.common(pr([(0, -C_H), (C_ARM, -C_H), (C_ARM, 0), (0, 0)]))
-    # fillets
-    f1 = pr([(C_PLATE, -C_LT), (C_PLATE + 15, -C_LT), (C_PLATE, -C_LT - 15)])
-    f2 = pr([(C_PLATE, -C_H + 20), (C_PLATE, -C_H), (C_PLATE + 14, -C_H)])
-    body = plate.fuse([arm, back, lip, strut, f1, f2])
-
-    # vertical wall slots, clear in front (straight screwdriver access)
-    cx = C_WIDTH / 2
-    for zc in (z_top - 11, z_bot + 11):
-        r = WALL_SCREW / 2
-        s = Part.makeCylinder(r, C_PLATE + 2, App.Vector(cx, -1, zc - SLOT_LEN / 2), App.Vector(0, 1, 0))
-        s2 = Part.makeCylinder(r, C_PLATE + 2, App.Vector(cx, -1, zc + SLOT_LEN / 2), App.Vector(0, 1, 0))
-        sb = Part.makeBox(2 * r, C_PLATE + 2, SLOT_LEN, App.Vector(cx - r, -1, zc - SLOT_LEN / 2))
-        body = body.cut(s).cut(s2).cut(sb)
+def anti_tip_clip():
+    # profile in the YZ plane (Y = out from the wall, Z = up, top of the metal arm at Z=0), extruded along X
+    y0 = PLATE_T + 0.3                       # back face rests against the wall plate
+    yw = y0 + CLIP_WALL                      # back edge of the glass
+    zb = -BAR_T - FIT - CLIP_FLOOR           # underside
+    pts = [(y0, zb), (y0 + CLIP_REACH, zb), (y0 + CLIP_REACH, 0), (yw, 0), (yw, SLOT),
+           (yw + CLIP_LIP, SLOT), (yw + CLIP_LIP, SLOT + CLIP_LIP_T), (yw, SLOT + CLIP_LIP_T),
+           (yw, PLATE_UP + 1), (y0, PLATE_UP + 1)]
+    v = [App.Vector(-CLIP_W / 2, y, z) for y, z in pts]
+    body = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(CLIP_W, 0, 0))
+    # the glass slot is open: glass rests on the arm (and on the clip top at Z=0) with felt
+    # channel for the metal arm
+    hw = BAR_W / 2 + FIT
+    body = body.cut(Part.makeBox(2 * hw, CLIP_REACH + 2, BAR_T + FIT + 0.01,
+                                 App.Vector(-hw, y0 - 1, -BAR_T - FIT)))
+    # clearance for the plate/arm bend
+    v = [App.Vector(-hw, y, z) for y, z in ((y0 - 1, -0.01), (y0 + BEND_R, -0.01), (y0 - 1, BEND_R + 1))]
+    body = body.cut(Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * hw, 0, 0)))
+    # set screw from below: presses the arm up against the clip and stops it sliding
+    body = body.cut(Part.makeCylinder(SET_D / 2, CLIP_FLOOR + 2,
+                                      App.Vector(0, y0 + CLIP_REACH - 9, zb - 1)))
     return body.removeSplitter()
 
 
 doc = App.newDocument("GlassShelfSupports")
 side = side_bracket()
-cen = center_bracket()
+clip = anti_tip_clip()
 o1 = doc.addObject("Part::Feature", "SideBracket"); o1.Shape = side
-o2 = doc.addObject("Part::Feature", "CenterBracket"); o2.Shape = cen
-o2.Placement.Base = App.Vector(80, 0, 0)
+o2 = doc.addObject("Part::Feature", "AntiTipClip"); o2.Shape = clip
+o2.Placement.Base = App.Vector(120, 0, 0)
 doc.recompute()
 doc.saveAs(os.path.join(OUT_DIR, "glass_shelf_supports.FCStd"))
 
-for shape, name in ((side, "side_bracket_x2.stl"), (cen, "center_bracket_x1.stl")):
+for shape, name in ((side, "side_bracket_x2.stl"), (clip, "anti_tip_clip_x2.stl")):
     m = Mesh.Mesh(shape.tessellate(0.05))
     m.write(os.path.join(OUT_DIR, name))
     print(name, "volume cm3:", round(shape.Volume / 1000, 1), "valid:", shape.isValid(),
