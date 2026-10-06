@@ -108,7 +108,9 @@ def side_bracket():
                     (TOP_LIP, SLOT + TOP_T, R_OUTER), (0, SLOT + TOP_T, R_OUTER)]
     else:
         corners += [(0, 0, R_OUTER)]
-    body = round_ends(round_corners(body, corners, "y"), "y", R_END)
+    # end-face fillets on both sides of the thin U back wall must not meet
+    r_end = min(R_END, (BACK - 0.4) / 2) if BACK > 0 else R_END
+    body = round_ends(round_corners(body, corners, "y"), "y", r_end)
 
     # 3 horizontal screws into the cabinet side, below the gusset (screwdriver access)
     zs = (gz - DROP) / 2
@@ -128,7 +130,9 @@ def side_bracket():
         if BACK > 0:
             body = body.cut(wedge_x([(y0 - s, SLOT), (y0 + s * ch, SLOT), (y0 - s, SLOT + ch + 1)],
                                     BACK - 0.01, TOP_LIP + 1))
-    return body.removeSplitter()
+    body = body.removeSplitter()
+    assert body.isValid(), "side bracket geometry is not valid"
+    return body
 
 
 def anti_tip_clip():
@@ -162,7 +166,9 @@ def anti_tip_clip():
     # 2 set screws from below, pressing on the bottom edge of the wall plate
     for x in (-SET_X, SET_X):
         body = body.cut(Part.makeCylinder(SET_D / 2, CLIP_FLOOR + 2, App.Vector(x, PLATE_T / 2, zb - 1)))
-    return body.removeSplitter()
+    body = body.removeSplitter()
+    assert body.isValid(), "anti-tip clip geometry is not valid"
+    return body
 
 
 def metal_bracket_ref():
