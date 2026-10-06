@@ -25,7 +25,7 @@ TOP_LIP   = 12.0   # how far the top lip covers the glass
 TOP_T     = 4.0    # top lip thickness
 PLATE     = 6.0    # plate thickness against the cabinet (below the ledge)
 DROP      = 46.0   # how far the plate extends below the resting surface
-SCREW_D   = 4.0    # screw hole (3.5 mm chipboard screws)
+SCREW_D   = 4.5    # screw hole (M4 through bolts or 3.5 mm chipboard screws)
 CSK_D     = 8.0    # countersink diameter
 
 # --- center bracket (wall mounted, supports the middle of the glass) ---
