@@ -19,6 +19,10 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 ![Sections](sections.png)
 
+![How the clip fits on the metal bracket](assembly.png)
+
+The FreeCAD model also contains a reference model of the metal bracket (`Ref_MetalBracket`) and a piece of glass (`Ref_Glass`), mounted around the clip. When run, the script checks that the clip never overlaps the bracket, both mounted and while sliding on. After changing the bracket measurements, check that its output still shows `overlap ... 0.000`.
+
 ## Hardware
 
 | Qty | Item | Where |

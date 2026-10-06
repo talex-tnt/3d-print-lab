@@ -46,6 +46,11 @@ CLIP_LIP_T = 4.0   # lip thickness
 CLIP_REACH = 25.0  # how far the clip runs along the arm, from the plate
 CLIP_FLOOR = 4.0   # thickness under the arm
 SET_D     = 3.4    # set screw hole (M4 screw self-taps into the plastic)
+
+# --- reference model of the metal bracket (not printed, only to check the fit in FreeCAD) ---
+BAR_LEN   = 250.0  # arm length
+PLATE_CH  = 8.0    # chamfer on the ends of the wall plate
+BEND_IN   = 2.0    # inner radius of the plate/arm bend (must be smaller than BEND_R)
 # --- rounding ---
 R_INNER   = 5.0    # fillet on inner (concave) structural corners
 R_OUTER   = 1.5    # fillet on outer corners
@@ -138,7 +143,7 @@ def anti_tip_clip():
     body = round_ends(round_corners(body, corners, "x"), "x", R_END)
     # opening for the wall plate: the frame sits around it, flush with the wall
     hp = PLATE_W / 2 + FIT
-    body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1, PLATE_UP + BAR_T + 2 * FIT,
+    body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1 + FIT, PLATE_UP + BAR_T + 2 * FIT,
                                  App.Vector(-hp, -1, -BAR_T - FIT)))
     # channel for the metal arm
     hw = BAR_W / 2 + FIT
@@ -154,12 +159,52 @@ def anti_tip_clip():
     return body.removeSplitter()
 
 
+def metal_bracket_ref():
+    """T-shaped flat-bar shelf bracket: wall plate standing on the wall, arm leaving its bottom edge."""
+    hp, hw = PLATE_W / 2, BAR_W / 2
+    zp0, zp1 = -BAR_T, PLATE_UP
+    v = [App.Vector(x, 0, z) for x, z in ((-hp + PLATE_CH, zp0), (hp - PLATE_CH, zp0), (hp, zp0 + PLATE_CH),
+                                          (hp, zp1 - PLATE_CH), (hp - PLATE_CH, zp1), (-hp + PLATE_CH, zp1),
+                                          (-hp, zp1 - PLATE_CH), (-hp, zp0 + PLATE_CH))]
+    plate = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(0, PLATE_T, 0))
+    arm = Part.makeBox(BAR_W, BAR_LEN, BAR_T, App.Vector(-hw, 0, -BAR_T))
+    body = plate.fuse(arm).removeSplitter()
+    bend = [e for e in body.Edges if abs(e.BoundBox.YMin - PLATE_T) < 1e-6 and abs(e.BoundBox.YMax - PLATE_T) < 1e-6
+            and abs(e.BoundBox.ZMin) < 1e-6 and abs(e.BoundBox.ZMax) < 1e-6 and e.BoundBox.XLength <= BAR_W + 1e-6]
+    body = body.makeFillet(BEND_IN, bend)
+    zc = (zp0 + zp1) / 2
+    for x in (-hp + 12, 0, hp - 12):   # countersunk wall screw holes
+        body = body.cut(Part.makeCylinder(2.75, PLATE_T + 2, App.Vector(x, -1, zc), App.Vector(0, 1, 0)))
+        body = body.cut(Part.makeCone(2.75, 5.5, 2.76, App.Vector(x, PLATE_T - 2.75, zc), App.Vector(0, 1, 0)))
+    for y in (60, 150, BAR_LEN - 20):  # screw holes along the arm
+        body = body.cut(Part.makeCylinder(2.25, BAR_T + 2, App.Vector(0, y, -BAR_T - 1)))
+    return body
+
+
+def check_fit(clip, ref, glass):
+    """Print the overlap between the clip and the metal bracket / glass, also while sliding the clip on."""
+    for d in (0, 1, 3, 6, 15, 40):
+        c = clip.copy(); c.translate(App.Vector(0, d, 0))
+        print(f"clip {d:>2} mm from home: overlap with bracket {c.common(ref).Volume:.3f} mm3")
+    print(f"clip home: overlap with glass {clip.common(glass).Volume:.3f} mm3,"
+          f" gap to bracket {clip.distToShape(ref)[0]:.2f} mm")
+
+
 doc = App.newDocument("GlassShelfSupports")
 side = side_bracket()
 clip = anti_tip_clip()
 o1 = doc.addObject("Part::Feature", "SideBracket"); o1.Shape = side
+o1.Placement.Base = App.Vector(-200, 0, 0)
 o2 = doc.addObject("Part::Feature", "AntiTipClip"); o2.Shape = clip
-o2.Placement.Base = App.Vector(120, 0, 0)
+# reference parts, mounted around the clip (wall at Y=0, top of the metal arm at Z=0)
+ref = metal_bracket_ref()
+glass = Part.makeBox(300, 400, GLASS_T, App.Vector(-150, PLATE_T + BEND_R, PAD))
+o3 = doc.addObject("Part::Feature", "Ref_MetalBracket"); o3.Shape = ref
+o4 = doc.addObject("Part::Feature", "Ref_Glass"); o4.Shape = glass
+if App.GuiUp:
+    o3.ViewObject.ShapeColor = (0.2, 0.2, 0.2)
+    o4.ViewObject.ShapeColor = (0.6, 0.8, 0.9); o4.ViewObject.Transparency = 60
+check_fit(clip, ref, glass)
 doc.recompute()
 doc.saveAs(os.path.join(OUT_DIR, "glass_shelf_supports.FCStd"))
 
