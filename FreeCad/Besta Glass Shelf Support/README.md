@@ -12,7 +12,7 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 | File | Qty | What it is |
 |---|---|---|
-| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides over the arm and around the wall plate of a metal bracket, flush with the wall, with a lip over the back edge of the glass. An M4 set screw from below locks it. |
+| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides along the arm and around the wall plate of a metal bracket, flush with the wall, with a 5 mm lip over the back edge of the glass. It sticks out only ~22 mm from the wall: the metal bracket carries the glass, and the clip only stops the back edge from lifting. 2 M4 set screws from below lock it. |
 | `side_bracket_x2.stl` | 2 | Sideways U, 170 mm long, bolted to the cabinet side; the glass end slides into it. It is symmetric, so for the other side just rotate it 180°. |
 | `glass_shelf_supports.py` | – | Parametric FreeCAD script that generates everything. |
 | `glass_shelf_supports.FCStd` | – | FreeCAD model. |
@@ -29,7 +29,7 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 |---|---|---|
 | 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 30 × 5.8 mm, 3 countersunk holes) | wall |
 | 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](#fixing-into-a-thick-stone-wall) | bracket → wall |
-| 2 | M4 × 8 screw (any head) | clip set screw, self-taps into the plastic |
+| 4 | M4 × 8 screw (any head) | clip set screws (2 per clip), self-tap into the plastic |
 | 6 | M4 × 30 countersunk bolt (ISO 10642 / DIN 7991) | side brackets → through the cabinet side |
 | 6 | M4 washer, wide (DIN 9021) | inside the cabinet |
 | 6 | M4 nyloc nut (DIN 985), or a plain nut with medium (blue) threadlocker | inside the cabinet |
@@ -58,14 +58,14 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 
 ![Print orientation](print_orientation.png)
 
-- **Anti-tip clip:** stand it on one end (121 mm tall) and add a brim. The profile then grows straight up and the lip is strong. The only bridges are the short ones over the plate opening and the arm channel.
+- **Anti-tip clip:** stand it on one end (121 mm tall) and add a brim. The profile then grows straight up and the lip is strong. The only bridge is the short one over the plate opening.
 - **Side bracket:** stand it upright on its U profile (170 mm tall). The layers then follow the profile, so the ledge carrying the glass does not load the layer lines in tension.
 
 ## Installation
 
 1. **Metal brackets.** Mount the 2 metal brackets on the wall **40 cm from each end of the shelf**, i.e. 100 cm apart and centered on the gap. The tops of both arms must be at exactly the same height: use a spirit level on each one and a long straight edge across both. Shelf height = top of the arm + 1 mm of felt.
-2. **Clips.** Slide a clip along each arm until its frame goes around the wall plate and touches the wall. Then tighten the M4 × 8 set screw from below until the clip is firm. Don't overtighten: the screw only needs to stop the clip from sliding.
-3. **Felt.** Stick felt tape on top of each arm and clip, and under each clip lip.
+2. **Clips.** Slide a clip along each arm until its frame goes around the wall plate and touches the wall. Then tighten the 2 M4 × 8 set screws from below: they press on the bottom edge of the wall plate and pull the frame down onto its top edge. Snug is enough: they only need to stop the clip from sliding.
+3. **Felt.** Stick felt tape on top of each arm and under each clip lip.
 4. **Side brackets (optional).** Lay the straight edge on the two arms and mark that height on both cabinet sides. The top of each side-bracket ledge goes exactly there, so all four supports are level. Center each bracket on the depth with the U opening toward the gap.
    - **Drill:** use the bracket as a template and drill **4.5 mm** through the cabinet side at its 3 holes, with a scrap block clamped inside so the melamine doesn't chip.
    - **Bolt:** fit the countersunk bolts from the bracket side, and the washers and nuts inside the cabinet. Felt goes in the U too.

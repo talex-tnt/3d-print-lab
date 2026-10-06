@@ -42,10 +42,10 @@ FIT       = 0.4    # clearance around the arm and the plate
 CLIP_SIDE = 10.0   # frame width left and right of the plate
 CLIP_TOP  = 3.0    # frame width above the plate
 CLIP_LIP  = 12.0   # how far the lip covers the glass
-CLIP_LIP_T = 4.0   # lip thickness
-CLIP_REACH = 25.0  # how far the clip runs along the arm, from the plate
-CLIP_FLOOR = 4.0   # thickness under the arm
-SET_D     = 3.4    # set screw hole (M4 screw self-taps into the plastic)
+CLIP_LIP_T = 5.0   # lip thickness
+CLIP_FLOOR = 5.0   # frame bar under the wall plate (holds the set screws)
+SET_D     = 3.4    # set screw holes (M4 screws self-tap into the plastic, press on the plate bottom edge)
+SET_X     = 32.0   # set screws left and right of center
 
 # --- reference model of the metal bracket (not printed, only to check the fit in FreeCAD) ---
 BAR_LEN   = 250.0  # arm length
@@ -126,36 +126,35 @@ def side_bracket():
 
 
 def anti_tip_clip():
-    # Y = out from the wall (wall at Y=0), Z = up (top of the metal arm at Z=0), X = along the wall
+    # Y = out from the wall (wall at Y=0), Z = up (top of the metal arm at Z=0), X = along the wall.
+    # A frame around the wall plate, flush with the wall, plus a lip over the back edge of the glass.
+    # The metal bracket carries the glass; the clip only stops the back edge from lifting.
     xw = PLATE_W / 2 + FIT + CLIP_SIDE       # half width
     yg = PLATE_T + BEND_R                    # back edge of the glass
     zb = -BAR_T - FIT - CLIP_FLOOR           # underside
     zt = PLATE_UP + FIT + CLIP_TOP           # top of the frame
-    pts = [(0, zb), (PLATE_T + CLIP_REACH, zb), (PLATE_T + CLIP_REACH, 0), (yg, 0), (yg, SLOT),
+    pts = [(0, zb), (PLATE_T, zb), (PLATE_T, 0), (yg, 0), (yg, SLOT),
            (yg + CLIP_LIP, SLOT), (yg + CLIP_LIP, SLOT + CLIP_LIP_T), (PLATE_T, SLOT + CLIP_LIP_T),
            (PLATE_T, zt), (0, zt)]
     v = [App.Vector(-xw, y, z) for y, z in pts]
     body = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * xw, 0, 0))
-    corners = [(0, zb, R_OUTER), (PLATE_T + CLIP_REACH, zb, R_OUTER), (PLATE_T + CLIP_REACH, 0, R_OUTER),
+    corners = [(0, zb, R_OUTER), (PLATE_T, zb, R_OUTER),   # (PLATE_T, 0) stays sharp: a fillet there would touch the arm
                (yg, 0, R_SLOT), (yg, SLOT, R_SLOT), (yg + CLIP_LIP, SLOT, R_OUTER),
-               (yg + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (PLATE_T, SLOT + CLIP_LIP_T, 2.0),
+               (yg + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (PLATE_T, SLOT + CLIP_LIP_T, 3.0),
                (PLATE_T, zt, R_OUTER), (0, zt, R_OUTER)]
     body = round_ends(round_corners(body, corners, "x"), "x", R_END)
-    # opening for the wall plate: the frame sits around it, flush with the wall
+    # opening for the wall plate (and the root of the arm): the frame sits around it, flush with the wall
     hp = PLATE_W / 2 + FIT
     body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1 + FIT, PLATE_UP + BAR_T + 2 * FIT,
                                  App.Vector(-hp, -1, -BAR_T - FIT)))
-    # channel for the metal arm
-    hw = BAR_W / 2 + FIT
-    body = body.cut(Part.makeBox(2 * hw, CLIP_REACH + PLATE_T + 2, BAR_T + FIT + 0.01,
-                                 App.Vector(-hw, -1, -BAR_T - FIT)))
     # clearance for the plate/arm bend
+    hw = BAR_W / 2 + FIT
     v = [App.Vector(-hw, y, z) for y, z in ((PLATE_T - 0.5, -0.01), (PLATE_T + BEND_R + 0.01, -0.01),
                                             (PLATE_T - 0.5, BEND_R + 0.5))]
     body = body.cut(Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * hw, 0, 0)))
-    # set screw from below: presses the arm up against the clip and stops it sliding
-    body = body.cut(Part.makeCylinder(SET_D / 2, CLIP_FLOOR + 2,
-                                      App.Vector(0, PLATE_T + CLIP_REACH - 9, zb - 1)))
+    # 2 set screws from below, pressing on the bottom edge of the wall plate
+    for x in (-SET_X, SET_X):
+        body = body.cut(Part.makeCylinder(SET_D / 2, CLIP_FLOOR + 2, App.Vector(x, PLATE_T / 2, zb - 1)))
     return body.removeSplitter()
 
 
