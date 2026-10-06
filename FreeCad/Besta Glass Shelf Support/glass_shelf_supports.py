@@ -10,7 +10,7 @@ import Part
 import Mesh
 
 # ------------- PARAMETERS (MEASURE BEFORE PRINTING!) -------------
-GLASS_T   = 6.0    # glass thickness (measure it with a caliper)
+GLASS_T   = 4.0    # glass thickness (IKEA spec: 0.4 cm, check with a caliper)
 PAD       = 1.0    # adhesive felt/rubber pad thickness (above and below the glass)
 CLEAR     = 0.6    # clearance to slide the glass in
 SLOT      = GLASS_T + 2 * PAD + CLEAR   # slot height
