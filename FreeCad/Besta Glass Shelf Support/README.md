@@ -96,7 +96,7 @@ Rough estimates of the sag of a 1.8 m shelf:
 
 ## Changing the design
 
-All dimensions (glass, felt, metal bracket, clip, side bracket) are parameters at the top of `glass_shelf_supports.py`. Edit them and run:
+All dimensions (glass, felt, metal bracket, clip, side bracket) and the fillet radii (`R_INNER`, `R_OUTER`, `R_SLOT`, `R_END`) are parameters at the top of `glass_shelf_supports.py`. Edit them and run:
 
 ```bash
 /Applications/FreeCAD.app/Contents/Resources/bin/freecadcmd glass_shelf_supports.py

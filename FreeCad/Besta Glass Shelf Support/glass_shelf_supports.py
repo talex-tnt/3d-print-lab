@@ -44,6 +44,12 @@ CLIP_LIP_T = 4.0   # lip thickness
 CLIP_REACH = 25.0  # how far the clip runs along the arm
 CLIP_FLOOR = 4.0   # thickness under the arm
 SET_D     = 3.4    # set screw hole (M4 screw self-taps into the plastic)
+# --- rounding ---
+R_INNER   = 5.0    # fillet on inner (concave) structural corners
+R_OUTER   = 1.5    # fillet on outer corners
+R_SLOT    = 0.8    # fillet in the corners where the glass sits (keep small)
+R_END     = 1.0    # fillet on the edges of the end faces
+
 OUT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
 # ------------------------------------------------------------------------
 
@@ -55,6 +61,25 @@ def prism(pts_xz, length):
     return face.extrude(App.Vector(0, length, 0))
 
 
+def round_corners(body, corners, axis):
+    """Fillet the edges running along `axis` ('x' or 'y') at the given profile corners [(u, z, r), ...]."""
+    def at(e, u, z):
+        bb = e.BoundBox
+        lo, hi = (bb.XMin, bb.XMax) if axis == "y" else (bb.YMin, bb.YMax)
+        return abs(lo - u) < 1e-6 and abs(hi - u) < 1e-6 and abs(bb.ZMin - z) < 1e-6 and abs(bb.ZMax - z) < 1e-6
+    for u, z, r in corners:
+        body = body.makeFillet(r, [e for e in body.Edges if at(e, u, z)])
+    return body
+
+
+def round_ends(body, axis, r):
+    """Fillet every edge lying in the two end faces normal to `axis`."""
+    def flat(e):
+        bb = e.BoundBox
+        return abs(bb.YMax - bb.YMin) < 1e-6 if axis == "y" else abs(bb.XMax - bb.XMin) < 1e-6
+    return body.makeFillet(r, [e for e in body.Edges if flat(e)])
+
+
 def side_bracket():
     gz = -(LEDGE_T + (LEDGE - PLATE))       # foot of the 45 degree gusset
     pts = [(0, -DROP), (PLATE, -DROP), (PLATE, gz), (LEDGE, -LEDGE_T), (LEDGE, 0)]
@@ -63,6 +88,14 @@ def side_bracket():
     else:
         pts += [(0, 0)]
     body = prism(pts, L_LEN)
+    corners = [(0, -DROP, R_OUTER), (PLATE, -DROP, R_OUTER), (PLATE, gz, R_INNER),
+               (LEDGE, -LEDGE_T, R_OUTER), (LEDGE, 0, R_OUTER)]
+    if BACK > 0:
+        corners += [(BACK, 0, R_SLOT), (BACK, SLOT, R_SLOT), (TOP_LIP, SLOT, R_OUTER),
+                    (TOP_LIP, SLOT + TOP_T, R_OUTER), (0, SLOT + TOP_T, R_OUTER)]
+    else:
+        corners += [(0, 0, R_OUTER)]
+    body = round_ends(round_corners(body, corners, "y"), "y", R_END)
 
     # 3 horizontal screws into the cabinet side, below the gusset (screwdriver access)
     zs = (gz - DROP) / 2
@@ -95,6 +128,11 @@ def anti_tip_clip():
            (yw, PLATE_UP + 1), (y0, PLATE_UP + 1)]
     v = [App.Vector(-CLIP_W / 2, y, z) for y, z in pts]
     body = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(CLIP_W, 0, 0))
+    corners = [(y0, zb, R_OUTER), (y0 + CLIP_REACH, zb, R_OUTER), (y0 + CLIP_REACH, 0, R_OUTER),
+               (yw, 0, R_SLOT), (yw, SLOT, R_SLOT), (yw + CLIP_LIP, SLOT, R_OUTER),
+               (yw + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (yw, SLOT + CLIP_LIP_T, 2.0),
+               (yw, PLATE_UP + 1, R_OUTER), (y0, PLATE_UP + 1, R_OUTER)]
+    body = round_ends(round_corners(body, corners, "x"), "x", R_END)
     # the glass slot is open: glass rests on the arm (and on the clip top at Z=0) with felt
     # channel for the metal arm
     hw = BAR_W / 2 + FIT
