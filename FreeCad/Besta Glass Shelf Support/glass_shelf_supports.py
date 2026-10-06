@@ -17,7 +17,7 @@ SLOT      = GLASS_T + 2 * PAD + CLEAR   # slot height
 
 # --- side bracket (screwed to the side of the tall cabinet) ---
 L_LEN     = 170.0  # length along the shelf depth (printed upright: A1 mini max 180)
-BACK      = 3.0    # U back wall between glass and cabinet. Needs: gap between cabinets >= 1800 + 2*BACK + 2
+BACK      = 2.0    # U back wall between glass and cabinet (5 solid perimeters). Needs: gap between cabinets >= 1800 + 2*BACK + 2
                    # set 0 for a flush fit: becomes an L (glass rests on it, no top lip)
 LEDGE     = 30.0   # how far the ledge reaches under the glass
 LEDGE_T   = 6.0    # lower ledge thickness

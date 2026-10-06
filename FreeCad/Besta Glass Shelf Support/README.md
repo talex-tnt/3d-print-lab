@@ -42,7 +42,7 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 1. **Glass thickness.** The IKEA spec is 0.4 cm. Measure it with a caliper and set `GLASS_T` if it differs.
 2. **Metal brackets.** The script uses the measured TESSTINA bracket: a wall plate 100 × 25 × 5 mm (`PLATE_W`, `PLATE_UP`, `PLATE_T`) standing entirely above a 40 × 5 mm arm (`BAR_W`, `BAR_T`), 30 mm in total. For other brackets, measure them and regenerate the clip.
 3. **Depth.** The back edge of the glass ends up about 9 mm from the wall: 5 mm of plate, plus 4 mm to clear the bend between plate and arm (`BEND_R`). Check that this works with how far your cabinets stand from the wall.
-4. **Gap between the cabinets (side brackets only).** It must be at least **1808 mm**: 1800 of glass, plus 3 mm of U back wall on each side, plus 2 mm of play. If it is smaller, set `BACK = 0`: the U becomes an L and the glass rests on it with no top lip. Or leave the side brackets out.
+4. **Gap between the cabinets (side brackets only).** It must be at least **1806 mm**: 1800 of glass, plus 2 mm of U back wall on each side, plus 2 mm of play. The U back wall is 2 mm (`BACK`), i.e. 5 solid perimeters, which is plenty since the wall clips do the anti-tip work. With the cabinets moved to a **1810 mm** gap there are ~3 mm of play per side. If the gap is smaller, set `BACK = 0`: the U becomes an L and the glass rests on it with no top lip. Or leave the side brackets out.
 
 ## Printing (Bambu Lab A1 mini)
 
