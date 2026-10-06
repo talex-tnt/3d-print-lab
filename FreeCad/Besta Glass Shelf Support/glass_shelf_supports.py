@@ -28,20 +28,22 @@ DROP      = 46.0   # how far the plate extends below the resting surface
 SCREW_D   = 4.5    # screw hole (M4 through bolts or 3.5 mm chipboard screws)
 CSK_D     = 8.0    # countersink diameter
 
-# --- anti-tip clip (slides on the arm of a metal wall bracket, holds the back edge of the glass) ---
+# --- anti-tip clip (a frame around the wall plate of a metal bracket, flush with the wall, with a lip
+#     over the back edge of the glass) ---
 # Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type): wall plate 100 x 30 x 5.8 mm,
 # arm a flat bar laid flat, leaving the plate bottom edge. MEASURE YOURS and adjust.
 BAR_W     = 38.0   # arm width
 BAR_T     = 5.8    # arm thickness
-PLATE_T   = 5.8    # wall plate thickness
+PLATE_W   = 100.0  # wall plate width
+PLATE_T   = 5.8    # wall plate thickness (the clip frame is just as thick, so both sit flush on the wall)
 PLATE_UP  = 24.0   # how far the wall plate rises above the top of the arm
-BEND_R    = 4.0    # clearance for the bend between plate and arm
-FIT       = 0.4    # clearance around the arm
-CLIP_W    = 100.0  # clip width (covers the wall plate)
-CLIP_WALL = 4.0    # front wall thickness: the back edge of the glass ends up at PLATE_T + 0.3 + CLIP_WALL from the wall
+BEND_R    = 4.0    # clearance for the bend between plate and arm: the back edge of the glass sits at PLATE_T + BEND_R
+FIT       = 0.4    # clearance around the arm and the plate
+CLIP_SIDE = 10.0   # frame width left and right of the plate
+CLIP_TOP  = 3.0    # frame width above the plate
 CLIP_LIP  = 12.0   # how far the lip covers the glass
 CLIP_LIP_T = 4.0   # lip thickness
-CLIP_REACH = 25.0  # how far the clip runs along the arm
+CLIP_REACH = 25.0  # how far the clip runs along the arm, from the plate
 CLIP_FLOOR = 4.0   # thickness under the arm
 SET_D     = 3.4    # set screw hole (M4 screw self-taps into the plastic)
 # --- rounding ---
@@ -119,31 +121,36 @@ def side_bracket():
 
 
 def anti_tip_clip():
-    # profile in the YZ plane (Y = out from the wall, Z = up, top of the metal arm at Z=0), extruded along X
-    y0 = PLATE_T + 0.3                       # back face rests against the wall plate
-    yw = y0 + CLIP_WALL                      # back edge of the glass
+    # Y = out from the wall (wall at Y=0), Z = up (top of the metal arm at Z=0), X = along the wall
+    xw = PLATE_W / 2 + FIT + CLIP_SIDE       # half width
+    yg = PLATE_T + BEND_R                    # back edge of the glass
     zb = -BAR_T - FIT - CLIP_FLOOR           # underside
-    pts = [(y0, zb), (y0 + CLIP_REACH, zb), (y0 + CLIP_REACH, 0), (yw, 0), (yw, SLOT),
-           (yw + CLIP_LIP, SLOT), (yw + CLIP_LIP, SLOT + CLIP_LIP_T), (yw, SLOT + CLIP_LIP_T),
-           (yw, PLATE_UP + 1), (y0, PLATE_UP + 1)]
-    v = [App.Vector(-CLIP_W / 2, y, z) for y, z in pts]
-    body = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(CLIP_W, 0, 0))
-    corners = [(y0, zb, R_OUTER), (y0 + CLIP_REACH, zb, R_OUTER), (y0 + CLIP_REACH, 0, R_OUTER),
-               (yw, 0, R_SLOT), (yw, SLOT, R_SLOT), (yw + CLIP_LIP, SLOT, R_OUTER),
-               (yw + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (yw, SLOT + CLIP_LIP_T, 2.0),
-               (yw, PLATE_UP + 1, R_OUTER), (y0, PLATE_UP + 1, R_OUTER)]
+    zt = PLATE_UP + FIT + CLIP_TOP           # top of the frame
+    pts = [(0, zb), (PLATE_T + CLIP_REACH, zb), (PLATE_T + CLIP_REACH, 0), (yg, 0), (yg, SLOT),
+           (yg + CLIP_LIP, SLOT), (yg + CLIP_LIP, SLOT + CLIP_LIP_T), (PLATE_T, SLOT + CLIP_LIP_T),
+           (PLATE_T, zt), (0, zt)]
+    v = [App.Vector(-xw, y, z) for y, z in pts]
+    body = Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * xw, 0, 0))
+    corners = [(0, zb, R_OUTER), (PLATE_T + CLIP_REACH, zb, R_OUTER), (PLATE_T + CLIP_REACH, 0, R_OUTER),
+               (yg, 0, R_SLOT), (yg, SLOT, R_SLOT), (yg + CLIP_LIP, SLOT, R_OUTER),
+               (yg + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (PLATE_T, SLOT + CLIP_LIP_T, 2.0),
+               (PLATE_T, zt, R_OUTER), (0, zt, R_OUTER)]
     body = round_ends(round_corners(body, corners, "x"), "x", R_END)
-    # the glass slot is open: glass rests on the arm (and on the clip top at Z=0) with felt
+    # opening for the wall plate: the frame sits around it, flush with the wall
+    hp = PLATE_W / 2 + FIT
+    body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1, PLATE_UP + BAR_T + 2 * FIT,
+                                 App.Vector(-hp, -1, -BAR_T - FIT)))
     # channel for the metal arm
     hw = BAR_W / 2 + FIT
-    body = body.cut(Part.makeBox(2 * hw, CLIP_REACH + 2, BAR_T + FIT + 0.01,
-                                 App.Vector(-hw, y0 - 1, -BAR_T - FIT)))
+    body = body.cut(Part.makeBox(2 * hw, CLIP_REACH + PLATE_T + 2, BAR_T + FIT + 0.01,
+                                 App.Vector(-hw, -1, -BAR_T - FIT)))
     # clearance for the plate/arm bend
-    v = [App.Vector(-hw, y, z) for y, z in ((y0 - 1, -0.01), (y0 + BEND_R, -0.01), (y0 - 1, BEND_R + 1))]
+    v = [App.Vector(-hw, y, z) for y, z in ((PLATE_T - 0.5, -0.01), (PLATE_T + BEND_R + 0.01, -0.01),
+                                            (PLATE_T - 0.5, BEND_R + 0.5))]
     body = body.cut(Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * hw, 0, 0)))
     # set screw from below: presses the arm up against the clip and stops it sliding
     body = body.cut(Part.makeCylinder(SET_D / 2, CLIP_FLOOR + 2,
-                                      App.Vector(0, y0 + CLIP_REACH - 9, zb - 1)))
+                                      App.Vector(0, PLATE_T + CLIP_REACH - 9, zb - 1)))
     return body.removeSplitter()
 
 

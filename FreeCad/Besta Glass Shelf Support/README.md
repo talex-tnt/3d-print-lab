@@ -3,7 +3,7 @@
 Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** into a floating shelf between two tall BESTÅ cabinets, above the BESTÅ TV bench. The glass is never drilled:
 
 - **It rests on 2 metal wall brackets.** They are flat-bar T brackets with 25 cm arms, placed 40 cm from each end, so the shelf stands on the wall alone.
-- **2 printed anti-tip clips hold its back edge.** They slide onto the bracket arms, so a weight on the front edge (the arms are 25 cm, the glass is 40 cm deep) cannot tip the glass up. They also cover the black wall plates.
+- **2 printed anti-tip clips hold its back edge.** Each is a frame that fits around a bracket's wall plate, flush with the wall and exactly as thick as the plate, with a lip over the back edge of the glass. A weight on the front edge (the arms are 25 cm, the glass is 40 cm deep) cannot tip the glass up.
 - **2 printed side brackets (sideways U) can hold its ends.** They are optional extras, bolted to the cabinet sides. If you ever need to move a cabinet, unbolt the U and the shelf stays up.
 
 ![Overview](overview.png)
@@ -12,7 +12,7 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 | File | Qty | What it is |
 |---|---|---|
-| `anti_tip_clip_x2.stl` | 2 | Clip that slides onto the arm of a metal bracket, with a lip over the back edge of the glass. An M4 set screw from below locks it. |
+| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides over the arm and around the wall plate of a metal bracket, flush with the wall, with a lip over the back edge of the glass. An M4 set screw from below locks it. |
 | `side_bracket_x2.stl` | 2 | Sideways U, 170 mm long, bolted to the cabinet side; the glass end slides into it. It is symmetric, so for the other side just rotate it 180°. |
 | `glass_shelf_supports.py` | – | Parametric FreeCAD script that generates everything. |
 | `glass_shelf_supports.FCStd` | – | FreeCAD model. |
@@ -36,8 +36,8 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 ## Before you start
 
 1. **Glass thickness.** The IKEA spec is 0.4 cm. Measure it with a caliper and set `GLASS_T` if it differs.
-2. **Metal brackets.** Measure the arm width and thickness (`BAR_W`, default 38, and `BAR_T`, default 5.8). Also measure how far the wall plate rises above the top of the arm (`PLATE_UP`, default 24). Then regenerate the clip.
-3. **Depth.** The back edge of the glass ends up about 10 mm from the wall (plate 5.8 + clip wall 4). Check that this works with how far your cabinets stand from the wall.
+2. **Metal brackets.** Measure the arm width and thickness (`BAR_W`, default 38, and `BAR_T`, default 5.8). Also measure the wall plate width and thickness (`PLATE_W`, default 100, and `PLATE_T`, default 5.8) and how far the plate rises above the top of the arm (`PLATE_UP`, default 24). Then regenerate the clip.
+3. **Depth.** The back edge of the glass ends up about 10 mm from the wall: 5.8 mm of plate, plus 4 mm to clear the bend between plate and arm (`BEND_R`). Check that this works with how far your cabinets stand from the wall.
 4. **Gap between the cabinets (side brackets only).** It must be at least **1808 mm**: 1800 of glass, plus 3 mm of U back wall on each side, plus 2 mm of play. If it is smaller, set `BACK = 0`: the U becomes an L and the glass rests on it with no top lip. Or leave the side brackets out.
 
 ## Printing (Bambu Lab A1 mini)
@@ -54,13 +54,13 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 ![Print orientation](print_orientation.png)
 
-- **Anti-tip clip:** print it with its back face (the wall side) on the bed. Every feature then grows straight up, so there are no overhangs.
+- **Anti-tip clip:** stand it on one end (121 mm tall) and add a brim. The profile then grows straight up and the lip is strong. The only bridges are the short ones over the plate opening and the arm channel.
 - **Side bracket:** stand it upright on its U profile (170 mm tall). The layers then follow the profile, so the ledge carrying the glass does not load the layer lines in tension.
 
 ## Installation
 
 1. **Metal brackets.** Mount the 2 metal brackets on the wall **40 cm from each end of the shelf**, i.e. 100 cm apart and centered on the gap. The tops of both arms must be at exactly the same height: use a spirit level on each one and a long straight edge across both. Shelf height = top of the arm + 1 mm of felt.
-2. **Clips.** Slide a clip onto each arm until it rests against the wall plate, then tighten the M4 × 8 set screw from below until the clip is firm. Don't overtighten: the screw only needs to stop the clip from sliding.
+2. **Clips.** Slide a clip along each arm until its frame goes around the wall plate and touches the wall. Then tighten the M4 × 8 set screw from below until the clip is firm. Don't overtighten: the screw only needs to stop the clip from sliding.
 3. **Felt.** Stick felt tape on top of each arm and clip, and under each clip lip.
 4. **Side brackets (optional).** Lay the straight edge on the two arms and mark that height on both cabinet sides. The top of each side-bracket ledge goes exactly there, so all four supports are level. Center each bracket on the depth with the U opening toward the gap.
    - **Drill:** use the bracket as a template and drill **4.5 mm** through the cabinet side at its 3 holes, with a scrap block clamped inside so the melamine doesn't chip.
