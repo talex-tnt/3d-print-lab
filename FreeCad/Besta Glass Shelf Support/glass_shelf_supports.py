@@ -30,20 +30,20 @@ CSK_D     = 8.0    # countersink diameter
 
 # --- anti-tip clip (a frame around the wall plate of a metal bracket, flush with the wall, with a lip
 #     over the back edge of the glass) ---
-# Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type): wall plate 100 x 25 x 5 mm (measured),
-# arm a flat bar laid flat, leaving the plate bottom edge. MEASURE YOURS and adjust.
-BAR_W     = 38.0   # arm width
+# Made for T-shaped flat-bar shelf brackets (TESSTINA "concealed" type), measured: wall plate 100 x 25 x 5 mm
+# standing entirely above the arm; arm a 40 x 5 mm flat bar leaving the plate bottom edge (30 mm in total).
+BAR_W     = 40.0   # arm width
 BAR_T     = 5.0    # arm thickness (same steel as the plate)
 PLATE_W   = 100.0  # wall plate width
 PLATE_T   = 5.0    # wall plate thickness (the clip frame is just as thick, so both sit flush on the wall)
-PLATE_UP  = 20.0   # how far the wall plate rises above the top of the arm (25 mm plate - 5 mm arm)
+PLATE_UP  = 25.0   # how far the wall plate rises above the top of the arm (the whole 25 mm plate)
 BEND_R    = 4.0    # clearance for the bend between plate and arm: the back edge of the glass sits at PLATE_T + BEND_R
 FIT       = 0.4    # clearance around the arm and the plate
 CLIP_SIDE = 10.0   # frame width left and right of the plate
 CLIP_TOP  = 3.0    # frame width above the plate
 CLIP_LIP  = 12.0   # how far the lip covers the glass
 CLIP_LIP_T = 5.0   # lip thickness
-CLIP_FLOOR = 5.0   # frame bar under the wall plate (holds the set screws)
+CLIP_FLOOR = 5.0   # frame bars under the wall plate, left and right of the arm (hold the set screws)
 SET_D     = 3.4    # set screw holes (M4 screws self-tap into the plastic, press on the plate bottom edge)
 SET_X     = 32.0   # set screws left and right of center
 
@@ -137,7 +137,7 @@ def anti_tip_clip():
     # The metal bracket carries the glass; the clip only stops the back edge from lifting.
     xw = PLATE_W / 2 + FIT + CLIP_SIDE       # half width
     yg = PLATE_T + BEND_R                    # back edge of the glass
-    zb = -BAR_T - FIT - CLIP_FLOOR           # underside
+    zb = -FIT - CLIP_FLOOR                   # underside (about flush with the bottom of the arm)
     zt = PLATE_UP + FIT + CLIP_TOP           # top of the frame
     pts = [(0, zb), (PLATE_T, zb), (PLATE_T, 0), (yg, 0), (yg, SLOT),
            (yg + CLIP_LIP, SLOT), (yg + CLIP_LIP, SLOT + CLIP_LIP_T), (PLATE_T, SLOT + CLIP_LIP_T),
@@ -149,12 +149,13 @@ def anti_tip_clip():
                (yg + CLIP_LIP, SLOT + CLIP_LIP_T, R_OUTER), (PLATE_T, SLOT + CLIP_LIP_T, 3.0),
                (PLATE_T, zt, R_OUTER), (0, zt, R_OUTER)]
     body = round_ends(round_corners(body, corners, "x"), "x", R_END)
-    # opening for the wall plate (and the root of the arm): the frame sits around it, flush with the wall
+    # opening for the wall plate: the frame sits around it, flush with the wall
     hp = PLATE_W / 2 + FIT
-    body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1 + FIT, PLATE_UP + BAR_T + 2 * FIT,
-                                 App.Vector(-hp, -1, -BAR_T - FIT)))
-    # clearance for the plate/arm bend
+    body = body.cut(Part.makeBox(2 * hp, PLATE_T + 1 + FIT, PLATE_UP + 2 * FIT, App.Vector(-hp, -1, -FIT)))
+    # channel for the arm, open at the bottom: the frame bars under the plate stop either side of it
     hw = BAR_W / 2 + FIT
+    body = body.cut(Part.makeBox(2 * hw, 100, -zb + 1.01, App.Vector(-hw, -1, zb - 1)))
+    # clearance for the plate/arm bend
     v = [App.Vector(-hw, y, z) for y, z in ((PLATE_T - 0.5, -0.01), (PLATE_T + BEND_R + 0.01, -0.01),
                                             (PLATE_T - 0.5, BEND_R + 0.5))]
     body = body.cut(Part.Face(Part.makePolygon(v + [v[0]])).extrude(App.Vector(2 * hw, 0, 0)))
@@ -167,7 +168,7 @@ def anti_tip_clip():
 def metal_bracket_ref():
     """T-shaped flat-bar shelf bracket: wall plate standing on the wall, arm leaving its bottom edge."""
     hp, hw = PLATE_W / 2, BAR_W / 2
-    zp0, zp1 = -BAR_T, PLATE_UP
+    zp0, zp1 = 0.0, PLATE_UP
     v = [App.Vector(x, 0, z) for x, z in ((-hp + PLATE_CH, zp0), (hp - PLATE_CH, zp0), (hp, zp0 + PLATE_CH),
                                           (hp, zp1 - PLATE_CH), (hp - PLATE_CH, zp1), (-hp + PLATE_CH, zp1),
                                           (-hp, zp1 - PLATE_CH), (-hp, zp0 + PLATE_CH))]
@@ -175,7 +176,8 @@ def metal_bracket_ref():
     arm = Part.makeBox(BAR_W, BAR_LEN, BAR_T, App.Vector(-hw, 0, -BAR_T))
     body = plate.fuse(arm).removeSplitter()
     bend = [e for e in body.Edges if abs(e.BoundBox.YMin - PLATE_T) < 1e-6 and abs(e.BoundBox.YMax - PLATE_T) < 1e-6
-            and abs(e.BoundBox.ZMin) < 1e-6 and abs(e.BoundBox.ZMax) < 1e-6 and e.BoundBox.XLength <= BAR_W + 1e-6]
+            and abs(e.BoundBox.ZMin) < 1e-6 and abs(e.BoundBox.ZMax) < 1e-6
+            and e.BoundBox.XMin > -hw - 1e-6 and e.BoundBox.XMax < hw + 1e-6]
     body = body.makeFillet(BEND_IN, bend)
     zc = (zp0 + zp1) / 2
     for x in (-hp + 12, 0, hp - 12):   # countersunk wall screw holes

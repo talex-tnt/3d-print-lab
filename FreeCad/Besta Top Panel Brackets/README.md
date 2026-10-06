@@ -50,7 +50,7 @@ Stand each L bracket on its L profile (40 mm tall), so the layers follow the pro
 
 - **Width:** the panel is exactly 180 cm, so the gap between the tall cabinets must be at least 1800 mm. The L brackets take no extra width.
 - **Depth:** the panel is 42 cm deep against 40 cm cabinets. Its back edge sits ~5 mm off the wall, in front of the metal wall plates, so it sticks out about 2.5 cm in front of cabinets that touch the wall.
-- **Wall plates:** they are 25 mm tall, so they rise 20 mm above the 5 mm arm, exactly the thickness of the panel. They end flush with its top and stay hidden behind it.
+- **Wall plates:** they rise 25 mm above the arm, so they stick up ~5 mm behind the back edge of the 20 mm panel. At 192 cm high this can't be seen.
 
 ## Installation
 
