@@ -228,7 +228,7 @@ check_fit(clip, ref, glass)
 doc.recompute()
 doc.saveAs(os.path.join(OUT_DIR, "glass_shelf_supports.FCStd"))
 
-for shape, name in ((side, "side_bracket_x2.stl"), (clip, "anti_tip_clip_x2.stl")):
+for shape, name in ((side, "side_bracket_x2.stl"), (clip, "anti_tip_clip_x3.stl")):
     m = Mesh.Mesh(shape.tessellate(0.05))
     m.write(os.path.join(OUT_DIR, name))
     print(name, "volume cm3:", round(shape.Volume / 1000, 1), "valid:", shape.isValid(),

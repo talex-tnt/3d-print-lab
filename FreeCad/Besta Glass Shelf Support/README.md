@@ -2,8 +2,8 @@
 
 Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** into a floating shelf between two tall BESTÅ cabinets, above the BESTÅ TV bench. The glass is never drilled:
 
-- **It rests on 2 metal wall brackets.** They are flat-bar T brackets with 25 cm arms, placed 40 cm from each end, so the shelf stands on the wall alone.
-- **2 printed anti-tip clips hold its back edge.** Each is a frame that fits around a bracket's wall plate, flush with the wall and exactly as thick as the plate, with a lip over the back edge of the glass. A weight on the front edge (the arms are 25 cm, the glass is 40 cm deep) cannot tip the glass up.
+- **It rests on 3 metal wall brackets.** They are flat-bar T brackets with 25 cm arms, placed 30 cm from each end and one in the middle (every 60 cm), so the shelf stands on the wall alone. The oak top panel above uses the same layout, so the two shelves match and a 6-pack of brackets covers both.
+- **3 printed anti-tip clips hold its back edge.** Each is a frame that fits around a bracket's wall plate, flush with the wall and exactly as thick as the plate, with a lip over the back edge of the glass. A weight on the front edge (the arms are 25 cm, the glass is 40 cm deep) cannot tip the glass up.
 - **2 printed side brackets (sideways U) can hold its ends.** They are optional extras, bolted to the cabinet sides. If you ever need to move a cabinet, unbolt the U and the shelf stays up.
 
 ![Overview](overview.png)
@@ -12,7 +12,7 @@ Turns an IKEA **BESTÅ glass top panel (180 × 40 cm, 4 mm tempered glass)** int
 
 | File | Qty | What it is |
 |---|---|---|
-| `anti_tip_clip_x2.stl` | 2 | 121 mm frame that slides along the arm and around the wall plate of a metal bracket, flush with the wall, with a 5 mm lip over the back edge of the glass. It sticks out only ~21 mm from the wall, and its bottom is flush with the bottom of the arm: the metal bracket carries the glass, and the clip only stops the back edge from lifting. 2 M4 set screws from below lock it. |
+| `anti_tip_clip_x3.stl` | 3 | 121 mm frame that slides along the arm and around the wall plate of a metal bracket, flush with the wall, with a 5 mm lip over the back edge of the glass. It sticks out only ~21 mm from the wall, and its bottom is flush with the bottom of the arm: the metal bracket carries the glass, and the clip only stops the back edge from lifting. 2 M4 set screws from below lock it. |
 | `side_bracket_x2.stl` | 2 | Sideways U, 170 mm long, bolted to the cabinet side; the glass end slides into it. It is symmetric, so for the other side just rotate it 180°. |
 | `glass_shelf_supports.py` | – | Parametric FreeCAD script that generates everything. |
 | `glass_shelf_supports.FCStd` | – | FreeCAD model. |
@@ -27,9 +27,9 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 
 | Qty | Item | Where |
 |---|---|---|
-| 2 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 25 × 5 mm standing above a 40 × 5 mm arm, 3 countersunk holes) | wall |
-| 6 | Wall fixings for those brackets, see [Fixing into a thick stone wall](#fixing-into-a-thick-stone-wall) | bracket → wall |
-| 4 | M4 × 8 screw (any head) | clip set screws (2 per clip), self-tap into the plastic |
+| 3 | Flat-bar T shelf bracket, 25 cm arm (e.g. TESSTINA "concealed" 80 kg: wall plate 100 × 25 × 5 mm standing above a 40 × 5 mm arm, 3 countersunk holes) | wall |
+| 9 | Wall fixings for those brackets, see [Fixing into a thick stone wall](#fixing-into-a-thick-stone-wall) | bracket → wall |
+| 6 | M4 × 8 screw (any head) | clip set screws (2 per clip), self-tap into the plastic |
 | 6 | M4 × 35 countersunk bolt (ISO 10642 / DIN 7991) | side brackets → through the cabinet side |
 | 6 | M4 washer, wide (DIN 9021) | inside the cabinet |
 | 6 | M4 nyloc nut (DIN 985), or a plain nut with medium (blue) threadlocker | inside the cabinet |
@@ -63,10 +63,10 @@ The FreeCAD model also contains a reference model of the metal bracket (`Ref_Met
 
 ## Installation
 
-1. **Metal brackets.** Mount the 2 metal brackets on the wall **40 cm from each end of the shelf**, i.e. 100 cm apart and centered on the gap. The tops of both arms must be at exactly the same height: use a spirit level on each one and a long straight edge across both. Shelf height = top of the arm + 1 mm of felt.
+1. **Metal brackets.** Mount the 3 metal brackets on the wall **30 cm from each end of the shelf and one in the middle**, i.e. at 30, 90 and 150 cm (60 cm apart). The tops of all arms must be at exactly the same height: use a spirit level on each one and a long straight edge across all three. Shelf height = top of the arm + 1 mm of felt.
 2. **Clips.** Slide a clip along each arm until its frame goes around the wall plate and touches the wall. Then tighten the 2 M4 × 8 set screws from below, left and right of the arm: they press on the bottom edge of the wall plate and pull the frame down onto its top edge. Snug is enough: they only need to stop the clip from sliding.
 3. **Felt.** Stick felt tape on top of each arm and under each clip lip.
-4. **Side brackets (optional).** Lay the straight edge on the two arms and mark that height on both cabinet sides. The top of each side-bracket ledge goes exactly there, so all four supports are level. Center each bracket on the depth with the U opening toward the gap.
+4. **Side brackets (optional).** Lay the straight edge on the arms and mark that height on both cabinet sides. The top of each side-bracket ledge goes exactly there, so all five supports are level. Center each bracket on the depth with the U opening toward the gap.
    - **Drill:** use the bracket as a template and drill **4.5 mm** through the cabinet side at its 3 holes, with a scrap block clamped inside so the melamine doesn't chip.
    - **Bolt:** fit the countersunk bolts from the bracket side, and the washers and nuts inside the cabinet. Felt goes in the U too.
 5. **Glass.** Hold it level and slide it in from the front, under the clip lips (and into the U slots), until its back edge touches the clips. It should not rattle. If it does, use thicker felt, and if it is too tight, thinner felt (or change `PAD`).
@@ -95,8 +95,9 @@ Rough estimates of the sag of a 1.8 m shelf:
 | Support | 4 mm glass |
 |---|---|
 | Only at the ends (side brackets alone) | ~36 mm |
-| 2 brackets 30 cm from the ends | ~5 mm |
-| **2 brackets 40 cm from the ends** | **< 1 mm** (≈ 2 mm with 10 kg spread on top) |
+| 2 brackets 40 cm from the ends | < 1 mm (≈ 2 mm with 10 kg spread on top) |
+| **3 brackets at 30 / 90 / 150 cm + side brackets** | **< 0.3 mm**, even with 10 kg on top |
+| 3 brackets alone (cabinets moved) | ~1 mm with 10 kg on top |
 
 ## Changing the design
 
