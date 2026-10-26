@@ -11,8 +11,9 @@ Same profile as the original: 1 mm disc with a chamfered rim, a 2 mm conical bos
 | File | Qty | What it is |
 |---|---|---|
 | `arcade_stick_cover.stl` | 1 | Ø60 × 3 mm cover, already in print orientation |
+| `arcade_stick_cover_flat.stl` | 1 | Alternative: Ø60 × 1 mm flat disc, no boss. Goes under the original cover |
 | `arcade_stick_cover.py` | – | Parametric FreeCAD script that generates everything |
-| `arcade_stick_cover.FCStd` | – | FreeCAD model |
+| `arcade_stick_cover.FCStd` | – | FreeCAD model (both versions) |
 
 ## Printing
 
